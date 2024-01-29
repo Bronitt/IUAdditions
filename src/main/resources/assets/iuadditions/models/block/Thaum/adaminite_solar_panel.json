@@ -1,0 +1,12 @@
+{
+  "parent" : "block/cube",
+  "textures" : {
+    "particle" : "industrialupgrade:blocks/edensp_side",
+    "down" : "industrialupgrade:blocks/edensp _bottom",
+    "up" : "industrialupgrade:blocks/edensp_top",
+    "north" : "industrialupgrade:blocks/edensp_side",
+    "east" : "industrialupgrade:blocks/edensp_side",
+    "south" : "industrialupgrade:blocks/edensp_side",
+    "west" : "industrialupgrade:blocks/edensp_side"
+  }
+}

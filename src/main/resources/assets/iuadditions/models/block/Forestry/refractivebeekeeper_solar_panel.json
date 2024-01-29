@@ -1,0 +1,12 @@
+{
+  "parent" : "block/cube",
+  "textures" : {
+    "particle" : "industrialupgrade:blocks/refractivebeesp_side",
+    "down" : "industrialupgrade:blocks/refractivebeesp_bottom",
+    "up" : "industrialupgrade:blocks/refractivebeesp_top",
+    "north" : "industrialupgrade:blocks/refractivebeesp_side",
+    "east" : "industrialupgrade:blocks/refractivebeesp_side",
+    "south" : "industrialupgrade:blocks/refractivebeesp_side",
+    "west" : "industrialupgrade:blocks/refractivebeesp_side"
+  }
+}

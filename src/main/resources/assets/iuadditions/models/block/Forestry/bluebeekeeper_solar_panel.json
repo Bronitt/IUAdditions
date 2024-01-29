@@ -1,0 +1,12 @@
+{
+  "parent" : "block/cube",
+  "textures" : {
+    "particle" : "industrialupgrade:blocks/bluebeesp_side",
+    "down" : "industrialupgrade:blocks/bluebeesp_bottom",
+    "up" : "industrialupgrade:blocks/bluebeesp_top",
+    "north" : "industrialupgrade:blocks/bluebeesp_side",
+    "east" : "industrialupgrade:blocks/bluebeesp_side",
+    "south" : "industrialupgrade:blocks/bluebeesp_side",
+    "west" : "industrialupgrade:blocks/bluebeesp_side"
+  }
+}

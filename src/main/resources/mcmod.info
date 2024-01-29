@@ -1,0 +1,21 @@
+[
+  {
+    "authorList" : [
+      "AETERNAL"
+    ],
+    "credits" : "This addon utilises code and api of Industrial Upgrade that belongs to it's respective owners",
+    "dependants" : [],
+    "dependencies" : ["industrialupgrade"],
+    "description" : "",
+    "logoFile" : "",
+    "mcversion" : "1.12.2",
+    "modid" : "industrialupgrade additions",
+    "name" : "IU: Additions",
+    "parent" : "",
+    "requiredMods" : ["industrialupgrade"],
+    "screenshots" : [],
+    "updateUrl" : "",
+    "url" : "",
+    "version" : "1.0"
+  }
+]

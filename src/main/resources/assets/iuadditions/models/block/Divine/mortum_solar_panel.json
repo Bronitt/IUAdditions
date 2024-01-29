@@ -1,0 +1,12 @@
+{
+  "parent" : "block/cube",
+  "textures" : {
+    "particle" : "industrialupgrade:blocks/mortumsp_side",
+    "down" : "industrialupgrade:blocks/mortumsp_bottom",
+    "up" : "industrialupgrade:blocks/mortumsp_top",
+    "north" : "industrialupgrade:blocks/mortumsp_side",
+    "east" : "industrialupgrade:blocks/mortumsp_side",
+    "south" : "industrialupgrade:blocks/mortumsp_side",
+    "west" : "industrialupgrade:blocks/mortumsp_side"
+  }
+}
