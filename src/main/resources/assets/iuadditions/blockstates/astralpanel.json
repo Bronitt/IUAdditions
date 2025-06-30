@@ -1,0 +1,39 @@
+{
+  "forge_marker" : 1,
+  "variants" : {
+    "type" : {
+      "brightscp_solar_panel" : {
+        "model" : "iuadditions:brightscp_solar_panel"
+      },
+      "dimscp_solar_panel" : {
+        "model" : "iuadditions:dimscp_solar_panel"
+      },
+      "faintscp_solar_panel" : {
+        "model" : "iuadditions:faintscp_solar_panel"
+      }
+    },
+    "facing" : {
+      "down" : {
+        "x" : 90
+      },
+      "up" : {
+        "x" : 270
+      },
+      "north" : {
+        "transform" : "forge:default-block"
+      },
+      "south" : {
+        "y" : 180
+      },
+      "west" : {
+        "y" : 270
+      },
+      "east" : {
+        "y" : 90
+      }
+    },
+    "inventory" : [
+      {}
+    ]
+  }
+}

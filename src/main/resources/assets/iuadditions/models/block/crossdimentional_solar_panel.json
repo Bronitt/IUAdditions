@@ -1,0 +1,12 @@
+{
+  "parent" : "block/cube",
+  "textures" : {
+    "particle" : "iuadditions:blocks/crossdimsp_side",
+    "down" : "iuadditions:blocks/crossdimsp_bottom",
+    "up" : "iuadditions:blocks/crossdimsp_top",
+    "north" : "iuadditions:blocks/crossdimsp_side",
+    "east" : "iuadditions:blocks/crossdimsp_side",
+    "south" : "iuadditions:blocks/crossdimsp_side",
+    "west" : "iuadditions:blocks/crossdimsp_side"
+  }
+}

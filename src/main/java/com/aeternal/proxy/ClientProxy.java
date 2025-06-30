@@ -1,9 +1,16 @@
 package com.aeternal.proxy;
 
-import com.denfop.api.IModelRegister;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiScreen;
-import net.minecraft.entity.player.EntityPlayer;
+import com.aeternal.Constants;
+import com.aeternal.api.IModelRegister;
+import com.aeternal.integration.astralsorcery.render.TileEntityDimSolarPanelRender;
+import com.aeternal.integration.astralsorcery.render.TileEntityFaintSolarPanelRender;
+import com.aeternal.integration.astralsorcery.render.TileEntitySolarPanelRender;
+import com.aeternal.integration.astralsorcery.tile.TileBrightstarlightcollectorSolarPanel;
+import com.aeternal.integration.astralsorcery.tile.TileDimstarlightcollectorSolarPanel;
+import com.aeternal.integration.astralsorcery.tile.TileFaintstarlightcollectorSolarPanel;
+import com.aeternal.integration.divinerpg.render.*;
+import com.aeternal.integration.divinerpg.tile.*;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
@@ -12,37 +19,37 @@ import java.util.ArrayList;
 public class ClientProxy extends CommonProxy {
 
     public static final ArrayList<IModelRegister> modelList = new ArrayList<>();
-    //
-    private final Minecraft mc = Minecraft.getMinecraft();
-    private GuiScreen gui;
+    public boolean addIModelRegister(IModelRegister modelRegister) {
+        return modelList.add(modelRegister);
+    }
 
     public void preInit(FMLPreInitializationEvent event) {
         super.preInit(event);
+        for (IModelRegister register : modelList) {
+            register.registerModels();
+        }
+
+
+        if(Constants.AS_LOADED && Constants.AS_CONFIRM){
+            ClientRegistry.bindTileEntitySpecialRenderer(TileBrightstarlightcollectorSolarPanel.class, new TileEntitySolarPanelRender<>());
+            ClientRegistry.bindTileEntitySpecialRenderer(TileDimstarlightcollectorSolarPanel.class, new TileEntityDimSolarPanelRender<>());
+            ClientRegistry.bindTileEntitySpecialRenderer(TileFaintstarlightcollectorSolarPanel.class, new TileEntityFaintSolarPanelRender<>());
+        }
+        if(Constants.DIV_LOADED && Constants.DIV_CONFIRM){
+            ClientRegistry.bindTileEntitySpecialRenderer(TileEdenSolarPanel.class, new TileEntityEdenSolarPanelRender<>());
+            ClientRegistry.bindTileEntitySpecialRenderer(TileWildwoodSolarPanel.class, new TileEntityWildwoodSolarPanelRender<>());
+            ClientRegistry.bindTileEntitySpecialRenderer(TileApalachiaSolarPanel.class, new TileEntityApalachiaSolarPanelRender<>());
+            ClientRegistry.bindTileEntitySpecialRenderer(TileSkythernSolarPanel.class, new TileEntitySkythernSolarPanelRender<>());
+            ClientRegistry.bindTileEntitySpecialRenderer(TileMortumSolarPanel.class, new TileEntityMortumSolarPanelRender<>());
+            ClientRegistry.bindTileEntitySpecialRenderer(TileArcanaSolarPanel.class, new TileEntityArcanaSolarPanelRender<>());
+            ClientRegistry.bindTileEntitySpecialRenderer(TileVetheaSolarPanel.class, new TileEntityVetheaSolarPanelRender<>());
+            ClientRegistry.bindTileEntitySpecialRenderer(TileCrossDimentionalSolarPanel.class, new TileEntityCrossDimSolarPanelRender<>());
+        }
 
     }
-
-
-    public EntityPlayer getPlayerInstance() {
-        return this.mc.player;
-    }
-
-
-
-
-/*    public void registerRecipe() {
-        super.registerRecipe();
-
-    }*/
-
-
 
     public void postInit(FMLPostInitializationEvent event) {
         super.postInit(event);
 
     }
-
-    public boolean addIModelRegister(IModelRegister modelRegister) {
-        return modelList.add(modelRegister);
-    }
-
 }

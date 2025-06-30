@@ -1,17 +1,10 @@
 package com.aeternal;
 
-import com.aeternal.Core;
 import net.minecraftforge.common.config.Configuration;
-import net.minecraftforge.fml.common.Loader;
-
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 
 public final class Config {
 
-
-public static boolean prompt;
     public static double edenGenDay;
     public static double edenStorage;
     public static double edenOutput;

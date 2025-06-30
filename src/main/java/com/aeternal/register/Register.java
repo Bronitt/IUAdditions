@@ -1,15 +1,5 @@
-
 package com.aeternal.register;
 
-
-import com.aeternal.Constants;
-import com.aeternal.IUAItem;
-import com.aeternal.blocks.mechanism.BlockTestPanel;
-
-import com.aeternal.integration.astralsorcery.AstralSorceryIntegration;
-import com.aeternal.items.IUAItemBase;
-
-import com.denfop.blocks.TileBlockCreator;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -23,20 +13,7 @@ public class Register {
     public static void init() {
 
         ItemStack[] stack;
-        if (Constants.AS_LOADED && Constants.AS_CONFIRM) {
-            AstralSorceryIntegration.astralstarmetal_plate = new IUAItemBase("astralstarmetal_plate");
-            AstralSorceryIntegration.stellar_capacitor = new IUAItemBase("astralstarmetal_plate");
-            AstralSorceryIntegration.stellar_soic = new IUAItemBase("astralstarmetal_plate");
-            AstralSorceryIntegration.stellar_qfp = new IUAItemBase("astralstarmetal_plate");
-            AstralSorceryIntegration.astralstarmetal_plate = new IUAItemBase("astralstarmetal_plate");
-            AstralSorceryIntegration.astralstarmetal_plate = new IUAItemBase("astralstarmetal_plate");
-            AstralSorceryIntegration.astralstarmetal_plate = new IUAItemBase("astralstarmetal_plate");
-            AstralSorceryIntegration.astralstarmetal_plate = new IUAItemBase("astralstarmetal_plate");
-            AstralSorceryIntegration.astralstarmetal_plate = new IUAItemBase("astralstarmetal_plate");
-            AstralSorceryIntegration.astralstarmetal_plate = new IUAItemBase("astralstarmetal_plate");
-            AstralSorceryIntegration.astralstarmetal_plate = new IUAItemBase("astralstarmetal_plate");
-        }
-        IUAItem.blocktest = TileBlockCreator.instance.create(BlockTestPanel.class);
+
     }
     
     public static <T extends Item> T registerItem(T item, ResourceLocation rl) {

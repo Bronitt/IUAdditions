@@ -1,0 +1,12 @@
+{
+  "parent" : "block/cube",
+  "textures" : {
+    "particle" : "iuadditions:blocks/wildwsp_side",
+    "down" : "iuadditions:blocks/wildwsp_bottom",
+    "up" : "iuadditions:blocks/wildwsp_top",
+    "north" : "iuadditions:blocks/wildwsp_side",
+    "east" : "iuadditions:blocks/wildwsp_side",
+    "south" : "iuadditions:blocks/wildwsp_side",
+    "west" : "iuadditions:blocks/wildwsp_side"
+  }
+}

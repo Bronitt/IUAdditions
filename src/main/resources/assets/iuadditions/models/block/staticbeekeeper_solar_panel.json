@@ -1,0 +1,12 @@
+{
+  "parent" : "block/cube",
+  "textures" : {
+    "particle" : "iuadditions:blocks/staticbeesp_side",
+    "down" : "iuadditions:blocks/staticbeesp_bottom",
+    "up" : "iuadditions:blocks/staticbeesp_top",
+    "north" : "iuadditions:blocks/staticbeesp_side",
+    "east" : "iuadditions:blocks/staticbeesp_side",
+    "south" : "iuadditions:blocks/staticbeesp_side",
+    "west" : "iuadditions:blocks/staticbeesp_side"
+  }
+}

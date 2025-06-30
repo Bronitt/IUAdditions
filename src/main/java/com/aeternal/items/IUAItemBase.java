@@ -9,8 +9,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.translation.I18n;
 import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
+
+import javax.annotation.Nonnull;
 
 public class IUAItemBase extends Item implements IModelRegister {
 
@@ -33,16 +33,20 @@ public class IUAItemBase extends Item implements IModelRegister {
         Core.proxy.addIModelRegister(this);
     }
 
+    public String getItemStackDisplayName(ItemStack stack) {
+        return I18n.translateToLocal(this.getUnlocalizedName(stack).replace("item.", "iua.") + ".name");
+    }
+
     public String getUnlocalizedName() {
         return super.getUnlocalizedName() + ".name";
     }
 
-    public String getItemStackDisplayName(ItemStack stack) {
-        return I18n.translateToLocal(this.getUnlocalizedName(stack).replace("item.", "iu.") + ".name");
+    @Override
+    public boolean hasEffect(@Nonnull final ItemStack stack) {
+        return false;
     }
 
     @Override
-    @SideOnly(Side.CLIENT)
     public void registerModels() {
         ModelLoader.setCustomModelResourceLocation(
                 this,
@@ -50,8 +54,6 @@ public class IUAItemBase extends Item implements IModelRegister {
                 new ModelResourceLocation(Constants.MOD_ID + ":" + path + this.name, null)
         );
     }
-
-
 
 
 }

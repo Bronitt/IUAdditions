@@ -1,0 +1,12 @@
+{
+  "parent" : "block/cube",
+  "textures" : {
+    "particle" : "iuadditions:blocks/arcanasp_side",
+    "down" : "iuadditions:blocks/arcanasp_bottom",
+    "up" : "iuadditions:blocks/arcanasp_top",
+    "north" : "iuadditions:blocks/arcanasp_side",
+    "east" : "iuadditions:blocks/arcanasp_side",
+    "south" : "iuadditions:blocks/arcanasp_side",
+    "west" : "iuadditions:blocks/arcanasp_side"
+  }
+}

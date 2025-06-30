@@ -1,0 +1,12 @@
+{
+  "parent" : "block/cube",
+  "textures" : {
+    "particle" : "iuadditions:blocks/amberbeesp_side",
+    "down" : "iuadditions:blocks/amberbeesp_bottom",
+    "up" : "iuadditions:blocks/amberbeesp_top",
+    "north" : "iuadditions:blocks/amberbeesp_side",
+    "east" : "iuadditions:blocks/amberbeesp_side",
+    "south" : "iuadditions:blocks/amberbeesp_side",
+    "west" : "iuadditions:blocks/amberbeesp_side"
+  }
+}

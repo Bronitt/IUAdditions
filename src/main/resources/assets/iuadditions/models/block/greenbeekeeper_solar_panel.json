@@ -1,0 +1,12 @@
+{
+  "parent" : "block/cube",
+  "textures" : {
+    "particle" : "iuadditions:blocks/greenbeesp_side",
+    "down" : "iuadditions:blocks/greenbeesp_bottom",
+    "up" : "iuadditions:blocks/greenbeesp_top",
+    "north" : "iuadditions:blocks/greenbeesp_side",
+    "east" : "iuadditions:blocks/greenbeesp_side",
+    "south" : "iuadditions:blocks/greenbeesp_side",
+    "west" : "iuadditions:blocks/greenbeesp_side"
+  }
+}

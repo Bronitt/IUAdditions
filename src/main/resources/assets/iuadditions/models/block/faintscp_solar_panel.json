@@ -1,0 +1,12 @@
+{
+  "parent" : "block/cube",
+  "textures" : {
+    "particle" : "iuadditions:blocks/faintscsp_side",
+    "down" : "iuadditions:blocks/faintscp_bottom",
+    "up" : "iuadditions:blocks/faintscsp_top",
+    "north" : "iuadditions:blocks/faintscsp_side",
+    "east" : "iuadditions:blocks/faintscsp_side",
+    "south" : "iuadditions:blocks/faintscsp_side",
+    "west" : "iuadditions:blocks/faintscsp_side"
+  }
+}

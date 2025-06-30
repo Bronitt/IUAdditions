@@ -1,84 +1,71 @@
 package com.aeternal.integration.forestry;
 
+
+import com.aeternal.integration.forestry.block.BlockForestrySolarPanel;
+import com.aeternal.items.IUAItemBase;
 import com.denfop.blocks.BlockTileEntity;
-import com.denfop.items.IUItemBase;
+import com.denfop.blocks.TileBlockCreator;
 import net.minecraft.item.Item;
 
 public class ForestryIntegration {
 
-    public static Item shimmeringhoneycomb_compressed;
-    public static Item radioactivehoneycomb_compressed;
-    public static Item venomoushoneycomb_compressed;
-    public static Item certushoneycomb_compressed;
-    public static Item statichoneycomb_compressed;
-    public static Item drippinghoneycomb_compressed;
-    public static Item shimmering_crystal;
-    public static Item radioactive_crystal;
-    public static Item venomous_crystal;
-    public static Item certus_crystal;
-    public static Item static_crystal;
-    public static Item dripping_crystal;
-    public static Item shimmering_plate;
-    public static Item radioactive_plate;
-    public static Item venomous_plate;
-    public static Item certus_plate;
-    public static Item static_plate;
-    public static Item dripping_plate;
-    public static Item refractive_plate;
-    public static Item shimmering_glass;
-    public static Item radioactive_glass;
-    public static Item venomous_glass;
-    public static Item certus_glass;
-    public static Item static_glass;
-    public static Item dripping_glass;
-    public static Item refractive_glass;
+    public static BlockTileEntity blockForestrySolarPanel;
+    public static Item compressed_shimmeringhoneycomb;
+    public static Item compressed_radioactivehoneycomb;
+    public static Item compressed_venomoushoneycomb;
+    public static Item compressed_certushoneycomb;
+    public static Item compressed_statichoneycomb;
+    public static Item compressed_drippinghoneycomb;
+    public static Item crystal_shimmering;
+    public static Item crystal_radioactive;
+    public static Item crystal_venomous;
+    public static Item crystal_certus;
+    public static Item crystal_static;
+    public static Item crystal_dripping;
+    public static Item plate_shimmering;
+    public static Item plate_radioactive;
+    public static Item plate_venomous;
+    public static Item plate_certus;
+    public static Item plate_static;
+    public static Item plate_dripping;
+    public static Item plate_refractive;
+    public static Item glass_shimmering;
+    public static Item glass_radioactive;
+    public static Item glass_venomous;
+    public static Item glass_certus;
+    public static Item glass_static;
+    public static Item glass_dripping;
+    public static Item glass_refractive;
 
     public static void init() {
-        shimmeringhoneycomb_compressed = new IUItemBase("shimmeringhoneycomb_compressed");
-        radioactivehoneycomb_compressed = new IUItemBase("radioactivehoneycomb_compressed");
-        venomoushoneycomb_compressed = new IUItemBase("venomoushoneycomb_compressed");
-        certushoneycomb_compressed = new IUItemBase("certushoneycomb_compressed");
-        statichoneycomb_compressed = new IUItemBase("statichoneycomb_compressed");
-        drippinghoneycomb_compressed = new IUItemBase("drippinghoneycomb_compressed");
-        shimmering_crystal = new IUItemBase("shimmering_crystal");
-        radioactive_crystal = new IUItemBase("radioactive_crystal");
-        venomous_crystal = new IUItemBase("venomous_crystal");
-        certus_crystal = new IUItemBase("certus_crystal");
-        static_crystal = new IUItemBase("static_crystal");
-        dripping_crystal = new IUItemBase("dripping_crystal");
-        shimmering_plate = new IUItemBase("shimmering_plate");
-        radioactive_plate = new IUItemBase("radioactive_plate");
-        venomous_plate = new IUItemBase("venomous_plate");
-        certus_plate = new IUItemBase("certus_plate");
-        static_plate = new IUItemBase("static_plate");
-        dripping_plate = new IUItemBase("dripping_plate");
-        refractive_plate = new IUItemBase("refractive_plate");
-        shimmering_glass = new IUItemBase("shimmering_glass");
-        radioactive_glass = new IUItemBase("radioactive_glass");
-        venomous_glass = new IUItemBase("venomous_glass");
-        certus_glass = new IUItemBase("certus_glass");
-        static_glass = new IUItemBase("static_glass");
-        dripping_glass = new IUItemBase("dripping_glass");
-        refractive_glass = new IUItemBase("refractive_glass");
+        blockForestrySolarPanel = TileBlockCreator.instance.create(BlockForestrySolarPanel.class);
+
+        compressed_shimmeringhoneycomb = new IUAItemBase("compressed_shimmeringhoneycomb");
+        compressed_radioactivehoneycomb = new IUAItemBase("compressed_radioactivehoneycomb");
+        compressed_venomoushoneycomb = new IUAItemBase("compressed_venomoushoneycomb");
+        compressed_certushoneycomb = new IUAItemBase("compressed_certushoneycomb");
+        compressed_statichoneycomb = new IUAItemBase("compressed_statichoneycomb");
+        compressed_drippinghoneycomb = new IUAItemBase("compressed_drippinghoneycomb");
+        crystal_shimmering = new IUAItemBase("crystal_shimmering");
+        crystal_radioactive = new IUAItemBase("crystal_radioactive");
+        crystal_venomous = new IUAItemBase("crystal_venomous");
+        crystal_certus = new IUAItemBase("crystal_certus");
+        crystal_static = new IUAItemBase("crystal_static");
+        crystal_dripping = new IUAItemBase("crystal_dripping");
+        plate_shimmering = new IUAItemBase("plate_shimmering");
+        plate_radioactive = new IUAItemBase("plate_radioactive");
+        plate_venomous = new IUAItemBase("plate_venomous");
+        plate_certus = new IUAItemBase("plate_certus");
+        plate_static = new IUAItemBase("plate_static");
+        plate_dripping = new IUAItemBase("plate_dripping");
+        plate_refractive = new IUAItemBase("plate_refractive");
+        glass_shimmering = new IUAItemBase("glass_shimmering");
+        glass_radioactive = new IUAItemBase("glass_radioactive");
+        glass_venomous = new IUAItemBase("glass_venomous");
+        glass_certus = new IUAItemBase("glass_certus");
+        glass_static = new IUAItemBase("glass_static");
+        glass_dripping = new IUAItemBase("glass_dripping");
+        glass_refractive = new IUAItemBase("glass_refractive");
     }
-
-
-
-
-    /*public static void addcompressor(ItemStack input, ItemStack output) {
-
-        final IInputHandler input1 = Recipes.inputFactory;
-        com.denfop.api.Recipes.recipes.addRecipe(
-                "compressor",
-                new BaseMachineRecipe(
-                        new Input(
-                                input1.getInput(input)
-                        ),
-                        new RecipeOutput(null, output)
-                )
-        );
-
-
-    }*/
 
 }

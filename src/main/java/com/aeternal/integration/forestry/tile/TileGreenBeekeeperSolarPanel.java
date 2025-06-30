@@ -1,0 +1,55 @@
+package com.aeternal.integration.forestry.tile;
+
+import com.aeternal.Config;
+import com.aeternal.integration.forestry.ForestryIntegration;
+import com.aeternal.integration.forestry.block.BlockForestrySolarPanel;
+import com.denfop.api.tile.IMultiTileBlock;
+import com.denfop.blocks.BlockTileEntity;
+import com.denfop.tiles.panels.entity.TileSolarPanel;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.RayTraceResult;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+
+public class TileGreenBeekeeperSolarPanel extends TileSolarPanel {
+
+    public TileGreenBeekeeperSolarPanel() {
+        super(10, Config.greenbeekeeperGenDay * 1, Config.greenbeekeeperOutput * 1,
+                Config.greenbeekeeperStorage * 1, null
+        );
+    }
+
+    public boolean doesSideBlockRendering(EnumFacing side) {
+        return true;
+    }
+
+    @SideOnly(Side.CLIENT)
+    public boolean shouldSideBeRendered(EnumFacing side, BlockPos otherPos) {
+        return true;
+    }
+
+    @Override
+    public ItemStack getPickBlock(final EntityPlayer player, final RayTraceResult target) {
+        return new ItemStack(Item.getItemFromBlock(ForestryIntegration.blockForestrySolarPanel), 1, BlockForestrySolarPanel.greenbeekeeper_solar_panel.getId());
+    }
+
+    @Override
+    public boolean isNormalCube() {
+        return false;
+    }
+
+    @Override
+    public IMultiTileBlock getTeBlock() {
+        return BlockForestrySolarPanel.greenbeekeeper_solar_panel;
+    }
+
+    @Override
+    public BlockTileEntity getBlock() {
+        return ForestryIntegration.blockForestrySolarPanel;
+    }
+
+}

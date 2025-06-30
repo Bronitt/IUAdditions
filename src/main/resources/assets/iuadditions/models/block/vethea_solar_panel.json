@@ -1,0 +1,12 @@
+{
+  "parent" : "block/cube",
+  "textures" : {
+    "particle" : "iuadditions:blocks/vetheasp_side",
+    "down" : "iuadditions:blocks/vetheasp_bottom",
+    "up" : "iuadditions:blocks/vetheasp_top",
+    "north" : "iuadditions:blocks/vetheasp_side",
+    "east" : "iuadditions:blocks/vetheasp_side",
+    "south" : "iuadditions:blocks/vetheasp_side",
+    "west" : "iuadditions:blocks/vetheasp_side"
+  }
+}

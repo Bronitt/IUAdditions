@@ -1,0 +1,54 @@
+{
+  "forge_marker" : 1,
+  "variants" : {
+    "type" : {
+      "eden_solar_panel" : {
+        "model" : "iuadditions:eden_solar_panel"
+      },
+      "wildwood_solar_panel" : {
+        "model" : "iuadditions:wildwood_solar_panel"
+      },
+      "apalachia_solar_panel" : {
+        "model" : "iuadditions:apalachia_solar_panel"
+      },
+      "skythern_solar_panel" : {
+        "model" : "iuadditions:skythern_solar_panel"
+      },
+      "mortum_solar_panel" : {
+        "model" : "iuadditions:mortum_solar_panel"
+      },
+      "arcana_solar_panel" : {
+        "model" : "iuadditions:arcana_solar_panel"
+      },
+      "vethea_solar_panel" : {
+        "model" : "iuadditions:vethea_solar_panel"
+      },
+      "crossdimentional_solar_panel" : {
+        "model" : "iuadditions:crossdimentional_solar_panel"
+      }
+    },
+    "facing" : {
+      "down" : {
+        "x" : 90
+      },
+      "up" : {
+        "x" : 270
+      },
+      "north" : {
+        "transform" : "forge:default-block"
+      },
+      "south" : {
+        "y" : 180
+      },
+      "west" : {
+        "y" : 270
+      },
+      "east" : {
+        "y" : 90
+      }
+    },
+    "inventory" : [
+      {}
+    ]
+  }
+}

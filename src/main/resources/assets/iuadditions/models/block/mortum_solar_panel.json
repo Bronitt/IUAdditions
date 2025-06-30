@@ -1,0 +1,12 @@
+{
+  "parent" : "block/cube",
+  "textures" : {
+    "particle" : "iuadditions:blocks/mortumsp_side",
+    "down" : "iuadditions:blocks/mortumsp_bottom",
+    "up" : "iuadditions:blocks/mortumsp_top",
+    "north" : "iuadditions:blocks/mortumsp_side",
+    "east" : "iuadditions:blocks/mortumsp_side",
+    "south" : "iuadditions:blocks/mortumsp_side",
+    "west" : "iuadditions:blocks/mortumsp_side"
+  }
+}

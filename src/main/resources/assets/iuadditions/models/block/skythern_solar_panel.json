@@ -1,0 +1,12 @@
+{
+  "parent" : "block/cube",
+  "textures" : {
+    "particle" : "iuadditions:blocks/skythsp_side",
+    "down" : "iuadditions:blocks/skythsp_bottom",
+    "up" : "iuadditions:blocks/skythsp_top",
+    "north" : "iuadditions:blocks/skythsp_side",
+    "east" : "iuadditions:blocks/skythsp_side",
+    "south" : "iuadditions:blocks/skythsp_side",
+    "west" : "iuadditions:blocks/skythsp_side"
+  }
+}

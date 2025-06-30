@@ -1,0 +1,12 @@
+{
+  "parent" : "block/cube",
+  "textures" : {
+    "particle" : "iuadditions:blocks/dimscsp_side",
+    "down" : "iuadditions:blocks/dimscp_bottom",
+    "up" : "iuadditions:blocks/dimscsp_top",
+    "north" : "iuadditions:blocks/dimscsp_side",
+    "east" : "iuadditions:blocks/dimscsp_side",
+    "south" : "iuadditions:blocks/dimscsp_side",
+    "west" : "iuadditions:blocks/dimscsp_side"
+  }
+}
