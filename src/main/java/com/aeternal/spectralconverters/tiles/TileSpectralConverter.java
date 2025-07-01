@@ -69,6 +69,9 @@ public class TileSpectralConverter extends TileEntityInventory implements
     List<TransferRFEnergy> transferRFEnergyList = new ArrayList<>();
     private long tick;
     public boolean isCore;
+    public boolean isCoreActive;
+    public long coreEnergy;
+    public long coreCapacity;
 
     public TileSpectralConverter() {
         this.energy2 = 0.0D;
@@ -82,11 +85,14 @@ public class TileSpectralConverter extends TileEntityInventory implements
         this.capacity = this.energy.capacity;
         this.energy.setDirections(ModUtils.allFacings, ModUtils.allFacings);
         this.upgradeSlot = new InvSlotUpgrade(this, 4);
-        this.defaultEnergyStorage = 7.5E10;
-        this.defaultEnergyRFStorage = 7.5E10;
+        this.defaultEnergyStorage = 10000000;
+        this.defaultEnergyRFStorage = 40000000;
         this.tier = 15;
         this.tick = 0;
         this.isCore = false;
+        this.isCoreActive = false;
+        this.coreEnergy = (long) 0.0;
+        this.coreCapacity = (long) 0.0;
     }
 
     public IMultiTileBlock getTeBlock() {
@@ -131,6 +137,9 @@ public class TileSpectralConverter extends TileEntityInventory implements
             differenceenergy1 = (double) DecoderHandler.decode(customPacketBuffer);
             differenceenergy = (double) DecoderHandler.decode(customPacketBuffer);
             isCore = (boolean) DecoderHandler.decode(customPacketBuffer);
+            isCoreActive = (boolean) DecoderHandler.decode(customPacketBuffer);
+            coreEnergy = (long)  DecoderHandler.decode(customPacketBuffer);
+            coreCapacity = (long)  DecoderHandler.decode(customPacketBuffer);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -150,6 +159,9 @@ public class TileSpectralConverter extends TileEntityInventory implements
             EncoderHandler.encode(packet, differenceenergy1);
             EncoderHandler.encode(packet, differenceenergy);
             EncoderHandler.encode(packet, isCore);
+            EncoderHandler.encode(packet, isCoreActive);
+            EncoderHandler.encode(packet, coreEnergy);
+            EncoderHandler.encode(packet, coreCapacity);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -160,10 +172,10 @@ public class TileSpectralConverter extends TileEntityInventory implements
         int tier = this.upgradeSlot.getTier(15);
         this.energy.setSinkTier(tier);
         this.energy.setSourceTier(tier);
-        this.energy.setCapacity(this.upgradeSlot.extraEnergyStorage +
+        this.energy.setCapacity(this.upgradeSlot.extraEnergyStorage*10 +
                 this.defaultEnergyStorage
         );
-        this.maxStorage2 = this.defaultEnergyRFStorage + this.upgradeSlot.extraEnergyStorage * Config.coefficientrf;
+        this.maxStorage2 = this.defaultEnergyRFStorage + this.upgradeSlot.extraEnergyStorage*10 * Config.coefficientrf;
         this.tier = tier;
         this.capacity = this.energy.capacity;
     }
@@ -286,6 +298,22 @@ public class TileSpectralConverter extends TileEntityInventory implements
             }
 
         }
+        if (!this.rf && Constants.DE_LOADED && energy2 < maxStorage2) {
+            long request = (long) (maxStorage2 - energy2);
+            attemptDECoreReceive(request);
+        }
+        if (this.isCore && this.isCoreActive && foundCore != null) {
+            TileEntity te = world.getTileEntity(foundCore);
+            if (te instanceof TileEnergyStorageCore) {
+                TileEnergyStorageCore core = (TileEnergyStorageCore) te;
+                this.coreEnergy = core.energy.value;
+                this.coreCapacity = core.getExtendedCapacity();
+            }
+        } else {
+            this.coreEnergy = 0;
+            this.coreCapacity = 0;
+        }
+
 
 
         final boolean needsInvUpdate = this.upgradeSlot.tickNoMark();
@@ -295,6 +323,8 @@ public class TileSpectralConverter extends TileEntityInventory implements
         this.energy2 = Math.min(this.energy2, this.maxStorage2);
 
     }
+
+
     @Optional.Method(modid = "draconicevolution")
     private synchronized long attemptDECoreTransfer(long transferCap) {
         try {
@@ -310,14 +340,46 @@ public class TileSpectralConverter extends TileEntityInventory implements
                 if (((TileEnergyStorageCore) te).active.value){
                     TileEnergyStorageCore core = (TileEnergyStorageCore) te;
                     isCore = true;
+                    isCoreActive = true;
 
                     long energyReceived = Math.min(core.getExtendedCapacity() - core.energy.value, transferCap);
                     ((TileEnergyStorageCore) te).energy.value += energyReceived;
                     energy2 -= energyReceived;
 
                     return energyReceived;
-                }
+                }else{isCoreActive = false;}
 
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+    @Optional.Method(modid = "draconicevolution")
+    private synchronized long attemptDECoreReceive(long maxReceive) {
+        try {
+            TileEntity te = foundCore == null ? null : world.getTileEntity(foundCore);
+            if (foundCore == null || !(te instanceof TileEnergyStorageCore)) {
+                isCore = false;
+                if (world.getTotalWorldTime() % 100 == 0) {
+                    foundCore = findCore(foundCore);
+                }
+            }
+
+            if (foundCore != null && te instanceof TileEnergyStorageCore) {
+                TileEnergyStorageCore core = (TileEnergyStorageCore) te;
+                if (core.active.value) {
+                    isCore = true;
+                    isCoreActive = true;
+
+                    long canExtract = Math.min(core.energy.value, maxReceive);
+                    core.energy.value -= canExtract;
+                    this.energy2 += canExtract;
+
+                    return canExtract;
+                } else {
+                    isCoreActive = false;
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -326,28 +388,8 @@ public class TileSpectralConverter extends TileEntityInventory implements
     }
 
 
-    /*@Optional.Method(modid = "draconicevolution")
-    private long attemptDECoreTransfer(long transferCap*//*, boolean simulate*//*) {
-        TileEntity te = foundCore == null ? null : world.getTileEntity(foundCore);
-        if (foundCore == null || !(te instanceof TileEnergyStorageCore)) {
-            isCore = false;
-            if (world.getTotalWorldTime() % 100 == 0) {
-                foundCore = findCore(foundCore);
-            }
-        }
 
-        if (foundCore != null && te instanceof TileEnergyStorageCore) {
-            TileEnergyStorageCore core = (TileEnergyStorageCore) te;
-            isCore = true;
 
-            long energyReceived = Math.min(core.getExtendedCapacity() - core.energy.value, transferCap);
-            ((TileEnergyStorageCore) te).energy.value += energyReceived;
-            energy2 -= energyReceived;
-
-            return energyReceived;
-        }
-        return 0;
-    }*/
     @Optional.Method(modid = "draconicevolution")
     private BlockPos findCore(BlockPos before) {
         List<TileEnergyStorageCore> list = new LinkedList<>();
@@ -467,9 +509,10 @@ public class TileSpectralConverter extends TileEntityInventory implements
     }
 
     public int gaugeTEEnergyScaled(int i) {
-        this.maxStorage2 = this.defaultEnergyRFStorage + this.upgradeSlot.extraEnergyStorage * Config.coefficientrf;
+        this.maxStorage2 = this.defaultEnergyRFStorage + this.upgradeSlot.extraEnergyStorage*10 * Config.coefficientrf;
         return (int) Math.min(this.energy2 * i / this.maxStorage2, i);
     }
+
 
     @Override
     public Set<UpgradableProperty> getUpgradableProperties() {

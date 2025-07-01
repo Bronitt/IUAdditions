@@ -54,6 +54,9 @@ public class CommonProxy  {
         if (Constants.FO_LOADED && Constants.BINNIE_LOADED && Constants.FO_CONFIRM) {
             ForestryRecipes.FOCompressorRecipe();
         }
+//        if (Constants.DE_LOADED && Constants.DE_CONFIRM) {
+//            SCRecipes.Init();
+//        }
     }
 
     public void postInit(FMLPostInitializationEvent event) {

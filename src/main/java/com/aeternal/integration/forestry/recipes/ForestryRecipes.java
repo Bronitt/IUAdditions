@@ -1,11 +1,9 @@
 package com.aeternal.integration.forestry.recipes;
 
 import binnie.extrabees.items.ItemHoneyComb;
-import binnie.extrabees.items.types.EnumHoneyComb;
 import com.aeternal.integration.forestry.ForestryIntegration;
 import com.denfop.IUItem;
 import com.denfop.api.Recipes;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 import static com.aeternal.integration.forestry.ForestryIntegration.*;

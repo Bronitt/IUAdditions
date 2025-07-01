@@ -11,10 +11,10 @@ public class ContainerSpectralConverter extends ContainerFullInv<TileSpectralCon
     public final EntityPlayer entityPlayer;
 
     public ContainerSpectralConverter(EntityPlayer entityPlayer, TileSpectralConverter tileEntity) {
-        super(entityPlayer, tileEntity, 176);
+        super(entityPlayer, tileEntity, 211,192);
         this.entityPlayer = entityPlayer;
         for (int k = 0; k < 4; k++) {
-            addSlotToContainer(new SlotInvSlot(tileEntity.upgradeSlot, k, 152, 17 + k * 18));
+            addSlotToContainer(new SlotInvSlot(tileEntity.upgradeSlot, k, 187, 19 + k * 18));
         }
     }
 

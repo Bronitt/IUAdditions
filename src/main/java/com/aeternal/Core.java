@@ -5,6 +5,7 @@ import com.aeternal.integration.divinerpg.DivinerpgIntegration;
 import com.aeternal.proxy.CommonProxy;
 import com.aeternal.spectralconverters.IModelRender;
 import com.aeternal.spectralconverters.blocks.BlockSpectralConverter;
+import com.aeternal.spectralconverters.recipes.SRecipes;
 import com.aeternal.tabs.TabCore;
 import com.denfop.blocks.BlockTileEntity;
 import com.denfop.blocks.TileBlockCreator;
@@ -63,7 +64,10 @@ public final class Core {
         com.aeternal.Core.log = event.getModLog();
         Config.loadNormalConfig(event.getSuggestedConfigurationFile());
         proxy.preInit(event);
-        itemSpectralPowerConverter = TileBlockCreator.instance.create(BlockSpectralConverter.class);
+        if(Constants.DE_LOADED && Constants.DE_CONFIRM && Constants.PU_LOADED) {
+            itemSpectralPowerConverter = TileBlockCreator.instance.create(BlockSpectralConverter.class);
+            itemSpectralPowerConverter.registerModels();
+        }
         if (event.getSide() == Side.CLIENT) {
             for (IModelRender register : modelList) {
                 register.registerModels();
@@ -78,7 +82,8 @@ public final class Core {
             if(Constants.FO_LOADED && Constants.FO_CONFIRM) {
                 blockForestrySolarPanel.registerModels();
             }
-            itemSpectralPowerConverter.registerModels();
+
+
         }
     }
     @SubscribeEvent
@@ -92,6 +97,7 @@ public final class Core {
 
     @Mod.EventHandler
     public void init(final FMLInitializationEvent event) {
+        SRecipes.init();
         proxy.init(event);
     }
 

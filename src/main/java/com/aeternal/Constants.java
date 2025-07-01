@@ -8,9 +8,10 @@ public class Constants {
     public static final String MOD_NAME = "IU:Additions";
     public static final String MOD_VERSION = "1.0";
     public static final String MOD_DEPS = "required-after:industrialupgrade;after:astralsorcery;after:forestry;" +
-            "after:divinerpg;after:botania;after:thaumcraft";
+            "after:divinerpg;after:botania;after:thaumcraft;after:draconicevolution";
 
     public static final String TEXTURES = "iuadditions";
+    public static final boolean PU_LOADED = Loader.isModLoaded("powerutils");
     public static final boolean DE_LOADED = Loader.isModLoaded("draconicevolution");
     public static final boolean AVA_LOADED = Loader.isModLoaded("avaritia");
     public static final boolean AE2_LOADED = Loader.isModLoaded("appliedenergistics2");
@@ -19,6 +20,7 @@ public class Constants {
     public static final boolean DIV_LOADED = Loader.isModLoaded("divinerpg");
     public static final boolean FO_LOADED = Loader.isModLoaded("forestry");
     public static final boolean BINNIE_LOADED = Loader.isModLoaded("extrabees");
+    public static final boolean DE_CONFIRM = Config.BotaniaConfirmed;
     public static final boolean BA_CONFIRM = Config.BotaniaConfirmed;
     public static final boolean AS_CONFIRM = Config.AstralConfirmed;
     public static final boolean DIV_CONFIRM = Config.DivineConfirmed;

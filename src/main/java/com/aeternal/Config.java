@@ -89,7 +89,7 @@ public final class Config {
     public static boolean ForestryConfirmed;
     public static boolean DivineConfirmed;
     public static boolean BotaniaConfirmed;
-
+    public static boolean DraconicConfirmed;
 
     public static boolean registerAstralPanels;
     public static boolean disableUpdateCheck;
@@ -103,7 +103,7 @@ public final class Config {
             ForestryConfirmed = config.getBoolean("Configuration Solar Panels","ForestryConfirm",true,"Are you sure you want to enable Forestry Solar Panels?");
             DivineConfirmed = config.getBoolean("Configuration Solar Panels","DivineConfirm",true,"Are you sure you want to enable Divine Solar Panels?");
             BotaniaConfirmed = config.getBoolean("Configuration Solar Panels","BotaniaConfirm",true,"Are you sure you want to enable Botania Solar Panels?");
-
+            DraconicConfirmed = config.getBoolean("Configuration Solar Panels","DraconicConfirm",true,"Are you sure you want to enable Draconic Evolution integration?");
 
             //CustomSolarPanelsCFG
             edenGenDay = config.get("Configuration Solar Panels", "EdenGenDay", 81920).getDouble(81920.0);
