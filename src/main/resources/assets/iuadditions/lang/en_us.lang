@@ -47,6 +47,7 @@ iuadditions.forestrypanel.amberbeekeeper_solar_panel=§6Amber Beekeeper Solar Pa
 iuadditions.forestrypanel.refractivebeekeeper_solar_panel=§4§lRefractive Beekeeper Solar Panel
 
 iuadditions.spectralconverter.spectral_converter=§dSpectral Converter
+iuadditions.spectralqeconverter.spectralqe_converter=§dQuantum Spectral Converter
 
 #ITEMS
 iua.plate_astralstarmetal.name=Starmetal Plate

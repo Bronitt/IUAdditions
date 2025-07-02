@@ -1,0 +1,40 @@
+{
+  "result": {
+    "item": "iuadditions:spectralqeconverter",
+    "data": 0
+  },
+  "pattern": [
+    "PCP",
+    "BRB",
+    "PEP"
+  ],
+  "type": "forge:ore_shaped",
+  "key":
+  {
+    "P":
+    {
+      "item": "industrialupgrade:alloydoubleplate",
+      "data": 21
+    },
+    "C":
+    {
+      "item": "draconicevolution:wyvern_core",
+      "data": 0
+    },
+    "B":
+    {
+      "item": "industrialupgrade:adv_spectral_box",
+      "data": 0
+    },
+    "R":
+    {
+      "item": "powerutils:powerutils",
+      "data": 3
+    },
+    "E":
+    {
+      "item": "draconicevolution:wyvern_energy_core",
+      "data": 0
+    }
+  }
+}

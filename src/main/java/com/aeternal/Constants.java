@@ -20,7 +20,7 @@ public class Constants {
     public static final boolean DIV_LOADED = Loader.isModLoaded("divinerpg");
     public static final boolean FO_LOADED = Loader.isModLoaded("forestry");
     public static final boolean BINNIE_LOADED = Loader.isModLoaded("extrabees");
-    public static final boolean DE_CONFIRM = Config.BotaniaConfirmed;
+    public static final boolean DE_CONFIRM = Config.DraconicConfirmed;
     public static final boolean BA_CONFIRM = Config.BotaniaConfirmed;
     public static final boolean AS_CONFIRM = Config.AstralConfirmed;
     public static final boolean DIV_CONFIRM = Config.DivineConfirmed;

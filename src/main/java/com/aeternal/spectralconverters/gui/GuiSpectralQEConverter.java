@@ -4,7 +4,9 @@ package com.aeternal.spectralconverters.gui;
 import com.aeternal.Constants;
 import com.aeternal.Utils;
 import com.aeternal.spectralconverters.container.ContainerSpectralConverter;
+import com.aeternal.spectralconverters.container.ContainerSpectralQEConverter;
 import com.aeternal.spectralconverters.tiles.TileSpectralConverter;
+import com.aeternal.spectralconverters.tiles.TileSpectralQEConverter;
 import com.denfop.Localization;
 import com.denfop.api.energy.EnergyNetGlobal;
 import com.denfop.gui.GuiCore;
@@ -16,16 +18,16 @@ import org.lwjgl.opengl.GL11;
 import java.io.IOException;
 import java.util.Collections;
 
-public class GuiSpectralConverter extends GuiCore<ContainerSpectralConverter> {
+public class GuiSpectralQEConverter extends GuiCore<ContainerSpectralQEConverter> {
 
     private static final ResourceLocation background = new ResourceLocation(
             Constants.MOD_ID,
-            "textures/gui/sc_gui.png"
+            "textures/gui/qesc_gui.png"
     );
-    private final ContainerSpectralConverter container;
-    private final TileSpectralConverter tileentity;
+    private final ContainerSpectralQEConverter container;
+    private final TileSpectralQEConverter tileentity;
 
-    public GuiSpectralConverter(ContainerSpectralConverter container1) {
+    public GuiSpectralQEConverter(ContainerSpectralQEConverter container1) {
         super(container1);
         this.xSize = 211;
         this.ySize = 192;
@@ -64,7 +66,7 @@ public class GuiSpectralConverter extends GuiCore<ContainerSpectralConverter> {
         int nmPos = (this.xSize - this.fontRenderer.getStringWidth(Localization.translate(this.container.base.getName()))) / 2;
         this.fontRenderer.drawString(Localization.translate(this.container.base.getName()), nmPos, 6, 7718655);
         this.fontRenderer.drawString(
-                "EF: " + ModUtils.getString(this.tileentity.energy.getEnergy()) + "/" + ModUtils.getString(
+                "QE: " + ModUtils.getString(this.tileentity.energy.getEnergy()) + "/" + ModUtils.getString(
                         this.tileentity.energy.capacity),
                 9,
                 20,
@@ -90,12 +92,12 @@ public class GuiSpectralConverter extends GuiCore<ContainerSpectralConverter> {
                 Utils.getWholeNumberString(this.tileentity.coreEnergy), 154, 72, 0xcdcdcd);
         if (this.tileentity.rf) {
             this.fontRenderer.drawString(
-                    "MAX IN: " + ModUtils.getString(EnergyNetGlobal.instance.getPowerFromTier(this.tileentity.tier)) + " EF/t",
+                    "MAX IN: " + ModUtils.getString(EnergyNetGlobal.instance.getPowerFromTier(this.tileentity.tier)) + " QE/t",
                     9,
                     40,
                     13487565
             );
-            this.fontRenderer.drawString("IN: " + ModUtils.getString(this.tileentity.differenceenergy1) + " EF/t", 9, 50,
+            this.fontRenderer.drawString("IN: " + ModUtils.getString(this.tileentity.differenceenergy1) + " QE/t", 9, 50,
                     13487565
             );
             this.fontRenderer.drawString("OUT: " + ModUtils.getString(this.tileentity.differenceenergy) + " RF/t", 9, 60,
@@ -104,7 +106,7 @@ public class GuiSpectralConverter extends GuiCore<ContainerSpectralConverter> {
 
         } else {
             this.fontRenderer.drawString(
-                    "MAX OUT: " + ModUtils.getString(EnergyNetGlobal.instance.getPowerFromTier(this.tileentity.tier)) + " EF/t",
+                    "MAX OUT: " + ModUtils.getString(EnergyNetGlobal.instance.getPowerFromTier(this.tileentity.tier)) + " QE/t",
                     9,
                     40,
                     13487565
@@ -112,11 +114,10 @@ public class GuiSpectralConverter extends GuiCore<ContainerSpectralConverter> {
             this.fontRenderer.drawString("IN: " + ModUtils.getString(this.tileentity.perenergy) + " RF/t", 9, 50,
                     13487565
             );
-            this.fontRenderer.drawString("OUT: " + ModUtils.getString(this.tileentity.differenceenergy) + " EF/t", 9, 60,
+            this.fontRenderer.drawString("OUT: " + ModUtils.getString(this.tileentity.differenceenergy) + " QE/t", 9, 60,
                     13487565
             );
         }
-
     }
 
     protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
@@ -142,13 +143,13 @@ public class GuiSpectralConverter extends GuiCore<ContainerSpectralConverter> {
             drawTexturedModalRect(j + 136, k + 72, 222, 94, 7, 7);
         }
         if (this.tileentity.energy.getEnergy() > 0) {
-            int gaugeFullHeight = 41;
-            int gaugeScaledHeight = this.tileentity.gaugeICEnergyScaled(gaugeFullHeight);
+            int gaugQEullHeight = 41;
+            int gaugeScaledHeight = this.tileentity.gaugeICEnergyScaled(gaugQEullHeight);
             drawTexturedModalRect(j + 117, k + 70 - gaugeScaledHeight, 213, 92 - gaugeScaledHeight, 9, gaugeScaledHeight);
         }
         if (this.tileentity.energy2 > 0) {
-            int gaugeFullHeight = 41;
-            int gaugeScaledHeight = this.tileentity.gaugeTEEnergyScaled(gaugeFullHeight);
+            int gaugQEullHeight = 41;
+            int gaugeScaledHeight = this.tileentity.gaugeTEEnergyScaled(gaugQEullHeight);
             drawTexturedModalRect(j + 135, k + 70 - gaugeScaledHeight, 224, 92 - gaugeScaledHeight, 9, gaugeScaledHeight);
         }
         if (this.tileentity.isCore &&  this.tileentity.isCoreActive) {
@@ -170,8 +171,6 @@ public class GuiSpectralConverter extends GuiCore<ContainerSpectralConverter> {
 
             this.drawHoveringText(Collections.singletonList(percent + "%"), mouseX, mouseY, this.fontRenderer);
         }
-
-
     }
 
 }

@@ -5,9 +5,9 @@ import cofh.redstoneflux.api.IEnergyProvider;
 import cofh.redstoneflux.api.IEnergyReceiver;
 import com.aeternal.Constants;
 import com.aeternal.Core;
-import com.aeternal.spectralconverters.blocks.BlockSpectralConverter;
-import com.aeternal.spectralconverters.container.ContainerSpectralConverter;
-import com.aeternal.spectralconverters.gui.GuiSpectralConverter;
+import com.aeternal.spectralconverters.blocks.BlockSpectralQEConverter;
+import com.aeternal.spectralconverters.container.ContainerSpectralQEConverter;
+import com.aeternal.spectralconverters.gui.GuiSpectralQEConverter;
 import com.brandon3055.draconicevolution.DEFeatures;
 import com.brandon3055.draconicevolution.blocks.tileentity.TileEnergyStorageCore;
 import com.aeternal.Config;
@@ -15,10 +15,13 @@ import com.denfop.IUCore;
 import com.denfop.Localization;
 import com.denfop.api.energy.EnergyNetGlobal;
 import com.denfop.api.energy.NodeStats;
+import com.denfop.api.sytem.EnergyBase;
+import com.denfop.api.sytem.EnergyType;
 import com.denfop.api.tile.IMultiTileBlock;
 import com.denfop.api.upgrades.IUpgradableBlock;
 import com.denfop.api.upgrades.UpgradableProperty;
 import com.denfop.blocks.BlockTileEntity;
+import com.denfop.componets.ComponentBaseEnergy;
 import com.denfop.componets.Energy;
 import com.denfop.invslot.InvSlotUpgrade;
 import com.denfop.network.DecoderHandler;
@@ -44,16 +47,10 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import java.io.IOException;
 import java.util.*;
 
-public class TileSpectralConverter extends TileEntityInventory implements
+public class TileSpectralQEConverter extends TileEntityInventory implements
         IUpdatableTileEvent, IEnergyHandler, IEnergyReceiver, IEnergyProvider, IUpgradableBlock {
     protected BlockPos foundCore = null;
-    protected int energyCoreSearchFailedCount = 0;
-    public static boolean delayedEnergyCoreSearch = true;
-    public static int energyCoreSearchDelay = 100;
-    public static int maxEnergyCoreSearchDelay = 300;
-    public static byte coreSearchRange = Config.coreSearchRange;
-
-    public final Energy energy;
+    public ComponentBaseEnergy energy;
     public final InvSlotUpgrade upgradeSlot;
     public final double defaultEnergyRFStorage;
     public final double defaultEnergyStorage;
@@ -72,21 +69,21 @@ public class TileSpectralConverter extends TileEntityInventory implements
     public boolean isCoreActive;
     public long coreEnergy;
     public long coreCapacity;
-
-    public TileSpectralConverter() {
-        this.energy2 = 0.0D;
-        this.maxStorage2 = 7.5E10;
-        this.rf = true;
-        this.energy = this.addComponent((new Energy(this, 7.5E10, ModUtils.allFacings,
+    public static byte coreSearchRange = Config.coreSearchRange;
+    public TileSpectralQEConverter() {
+        this.energy= this.addComponent(new ComponentBaseEnergy(EnergyType.QUANTUM, this, 40000D / 16, ModUtils.allFacings,
                 ModUtils.allFacings,
                 15,
                 15, false
-        )));
+        ));
+        this.energy2 = 0.0D;
+        this.maxStorage2 = 7.5E10;
+        this.rf = true;
         this.capacity = this.energy.capacity;
         this.energy.setDirections(ModUtils.allFacings, ModUtils.allFacings);
         this.upgradeSlot = new InvSlotUpgrade(this, 4);
         this.defaultEnergyStorage = 10000000;
-        this.defaultEnergyRFStorage = 40000000;
+        this.defaultEnergyRFStorage = defaultEnergyStorage*64;
         this.tier = 15;
         this.tick = 0;
         this.isCore = false;
@@ -96,11 +93,11 @@ public class TileSpectralConverter extends TileEntityInventory implements
     }
 
     public IMultiTileBlock getTeBlock() {
-        return BlockSpectralConverter.spectral_converter;
+        return BlockSpectralQEConverter.spectralqe_converter;
     }
 
     public BlockTileEntity getBlock() {
-        return Core.itemSpectralPowerConverter;
+        return Core.itemSpectralQEConverter;
     }
 
     @SideOnly(Side.CLIENT)
@@ -175,7 +172,7 @@ public class TileSpectralConverter extends TileEntityInventory implements
         this.energy.setCapacity(this.upgradeSlot.extraEnergyStorage*10 +
                 this.defaultEnergyStorage
         );
-        this.maxStorage2 = this.defaultEnergyRFStorage + this.upgradeSlot.extraEnergyStorage*10 * Config.coefficientrf;
+        this.maxStorage2 = this.defaultEnergyRFStorage + this.upgradeSlot.extraEnergyStorage*10 * Config.coefficientqe;
         this.tier = tier;
         this.capacity = this.energy.capacity;
     }
@@ -198,7 +195,7 @@ public class TileSpectralConverter extends TileEntityInventory implements
         int i = Math.max(0, (int) Math.min(
                 this.maxStorage2 - this.energy2,
                 Math.min(
-                        EnergyNetGlobal.instance.getPowerFromTier(this.energy.getSourceTier() * Config.coefficientrf),
+                        EnergyNetGlobal.instance.getPowerFromTier(this.energy.getSourceTier() * Config.coefficientqe),
                         paramInt
                 )
         ));
@@ -217,14 +214,16 @@ public class TileSpectralConverter extends TileEntityInventory implements
 
     public int extractEnergy(EnumFacing from, int maxExtract, boolean simulate) {
         return extractEnergy((int) Math.min(
-                EnergyNetGlobal.instance.getPowerFromTier(this.energy.getSourceTier() * Config.coefficientrf),
+                EnergyNetGlobal.instance.getPowerFromTier(this.energy.getSourceTier() * Config.coefficientqe),
                 maxExtract
         ), simulate);
     }
 
 
     public long transferLimit;
-
+    protected boolean shouldEmitEnergy() {
+        return !this.rf;
+    }
     public void updateEntityServer() {
         super.updateEntityServer();
         this.energy.setReceivingEnabled(!this.shouldEmitEnergy());
@@ -236,21 +235,21 @@ public class TileSpectralConverter extends TileEntityInventory implements
         }
         if (this.rf) {
             if (energy.getEnergy() > 0 && energy2 < maxStorage2) {
-                double add = Math.min(maxStorage2 - energy2, energy.getEnergy() * Config.coefficientrf);
+                double add = Math.min(maxStorage2 - energy2, energy.getEnergy() * Config.coefficientqe);
                 add = Math.max(add, 0);
                 energy2 += add;
-                energy.useEnergy(add / Config.coefficientrf);
+                energy.useEnergy(add / Config.coefficientqe);
             }
         } else {
 
             if (energy2 > 0 && energy.getEnergy() < energy.getCapacity()) {
-                double k = energy.addEnergy(energy2 / Config.coefficientrf) * Config.coefficientrf;
+                double k = energy.addEnergy(energy2 / Config.coefficientqe) * Config.coefficientqe;
                 energy2 -= k;
             }
 
         }
         if (!this.list.isEmpty()) {
-            NodeStats stats = EnergyNetGlobal.instance.getNodeStats(this.energy.getDelegate());
+            NodeStats stats = EnergyBase.QE.getNodeStats(this.energy.getDelegate(), this.world);
             if (this.rf) {
                 if (stats != null) {
                     this.differenceenergy1 = stats.getEnergyIn();
@@ -412,9 +411,7 @@ public class TileSpectralConverter extends TileEntityInventory implements
         return first == null ? null : first.getPos();
     }
 
-    protected boolean shouldEmitEnergy() {
-        return !this.rf;
-    }
+
 
     public int extractEnergy(int paramInt, boolean paramBoolean) {
         int i = (int) Math.min(this.energy2, paramInt);
@@ -488,14 +485,14 @@ public class TileSpectralConverter extends TileEntityInventory implements
         return true;
     }
 
-    public ContainerSpectralConverter getGuiContainer(EntityPlayer player) {
+    public ContainerSpectralQEConverter getGuiContainer(EntityPlayer player) {
         list.add(player);
-        return new ContainerSpectralConverter(player, this);
+        return new ContainerSpectralQEConverter(player, this);
     }
 
     @SideOnly(Side.CLIENT)
     public GuiScreen getGui(EntityPlayer entityPlayer, boolean isAdmin) {
-        return new GuiSpectralConverter(getGuiContainer(entityPlayer));
+        return new GuiSpectralQEConverter(getGuiContainer(entityPlayer));
     }
 
 
@@ -509,7 +506,7 @@ public class TileSpectralConverter extends TileEntityInventory implements
     }
 
     public int gaugeTEEnergyScaled(int i) {
-        this.maxStorage2 = this.defaultEnergyRFStorage + this.upgradeSlot.extraEnergyStorage*10 * Config.coefficientrf;
+        this.maxStorage2 = this.defaultEnergyRFStorage + this.upgradeSlot.extraEnergyStorage*10 * Config.coefficientqe;
         return (int) Math.min(this.energy2 * i / this.maxStorage2, i);
     }
 

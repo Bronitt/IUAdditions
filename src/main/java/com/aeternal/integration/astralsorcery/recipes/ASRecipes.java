@@ -7,6 +7,7 @@ import com.denfop.api.Recipes;
 import com.denfop.api.recipe.BaseMachineRecipe;
 import com.denfop.api.recipe.Input;
 import com.denfop.api.recipe.RecipeOutput;
+import com.denfop.blocks.FluidName;
 import com.denfop.items.resource.ItemIngots;
 import com.denfop.recipe.IInputHandler;
 import com.denfop.recipe.IInputItemStack;
@@ -23,6 +24,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.oredict.OreDictionary;
 
 import static com.aeternal.integration.astralsorcery.block.BlockAstralSolarPanel.dimscp_solar_panel;

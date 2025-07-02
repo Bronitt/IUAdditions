@@ -94,6 +94,10 @@ public final class Config {
     public static boolean registerAstralPanels;
     public static boolean disableUpdateCheck;
 
+    public static int coefficientqe;
+    public static int coefficientrf;
+    public static byte coreSearchRange;
+
     public static void loadNormalConfig(final File configFile) {
         Core.log.info("Loading IUA Config from " + configFile.getAbsolutePath());
 
@@ -198,7 +202,18 @@ public final class Config {
 
             //CustomSolarPanelsCFG_END
             promt = config.get("general", "Enable prompt about information a panel", true).getBoolean(true);
-
+            coefficientqe = config.get("general", "coefficient qe", 64).getInt(64);
+            if (coefficientqe < 1) {
+                coefficientqe = 64;
+            }
+            coefficientrf = config.get("general", "coefficient rf", 4).getInt(4);
+            if (coefficientrf < 1) {
+                coefficientrf = 4;
+            }
+            coreSearchRange = (byte) config.get("general", "The area in blocks where spectral converter will attempt to locate the energy core (max 128)", 16).getInt(16);
+            if (coreSearchRange < 1) {
+                coreSearchRange = 16;
+            }
         } catch (Exception e) {
             Core.log.fatal("Fatal error reading config file.", e);
             throw new RuntimeException(e);
