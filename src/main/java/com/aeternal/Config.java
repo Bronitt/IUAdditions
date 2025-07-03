@@ -96,8 +96,8 @@ public final class Config {
 
     public static int coefficientqe;
     public static int coefficientrf;
-    public static int coefficienteftomana;
-    public static int coefficientmanatoef;
+    public static double coefficienteftomana;
+    public static double coefficientmanatoef;
     public static int manatransferrate;
     public static byte coreSearchRange;
 
@@ -222,9 +222,9 @@ public final class Config {
             }
             allowEfToManaConversion = config.get("general", "Allow EF to Mana Conversion", false).getBoolean(false);
             allowManaToEfConversion = config.get("general", "Allow Mana to Ef Conversion", true).getBoolean(true);
-            coefficienteftomana = config.get("general", "coefficient ef to mana", 1).getInt(1);
+            coefficienteftomana = config.get("general", "coefficient ef to mana", 0.02).getDouble(0.02);
 
-            coefficientmanatoef = config.get("general", "coefficient mana to ef", 2).getInt(2);
+            coefficientmanatoef = config.get("general", "coefficient mana to ef", 0.02).getDouble(0.02);
 
             manatransferrate = config.get("general", "mana I/O transfer rate", 50000).getInt(50000);
 

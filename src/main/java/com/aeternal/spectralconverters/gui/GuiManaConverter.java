@@ -88,7 +88,7 @@ public class GuiManaConverter extends GuiCore<ContainerManaConverter> {
             this.fontRenderer.drawString("IN: " + ModUtils.getString(this.tileentity.differenceenergy1) + " EF/t", 9, 50,
                     13487565
             );
-            this.fontRenderer.drawString("OUT: " + ModUtils.getString(this.tileentity.differenceenergy) + " MANA/t", 9, 60,
+            this.fontRenderer.drawString("OUT: " + ModUtils.getString(this.tileentity.perenergy) + " MANA/t", 9, 60,
                     13487565
             );
         } else {

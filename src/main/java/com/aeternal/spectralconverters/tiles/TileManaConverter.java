@@ -27,7 +27,6 @@ import com.denfop.tiles.panels.entity.TransferRFEnergy;
 import com.denfop.utils.ModUtils;
 import com.google.common.base.Predicates;
 import com.meteor.extrabotany.common.block.tile.TileManaBuffer;
-import com.powerutils.PowerUtils;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -35,7 +34,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.ITickable;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.fml.relauncher.Side;
@@ -278,23 +276,19 @@ private static final BlockPos[] POOL_LOCATIONS = {
         }
         if (this.mn && Config.allowEfToManaConversion) {
             if (energy.getEnergy() > 0 && mana < manaCap) {
-                double efStored = energy.getEnergy();
-                int maxGen = (int)(efStored / Config.coefficienteftomana);
-                int space = manaCap - mana;
-                int toGen = Math.min(maxGen, space);
-                if (toGen > 0) {
-                    energy.useEnergy(toGen * Config.coefficienteftomana);
-                    mana += toGen;
-                }
+                double add = Math.min(manaCap - mana, energy.getEnergy() * Config.coefficienteftomana);
+                add = Math.max(add, 0);
+                mana += add;
+                energy.useEnergy(add / Config.coefficienteftomana);
+                this.perenergy = add;
+
             }
         } else {
             if(Config.allowManaToEfConversion){
-                int maxGen   = mana / Config.coefficientmanatoef;
-                double efRoom = energy.getCapacity() - energy.getEnergy();
-                int toGen    = (int)Math.min(maxGen, efRoom);
-                if (toGen > 0) {
-                    energy.addEnergy(toGen);
-                    mana -= toGen * Config.coefficientmanatoef;
+                if (mana > 0 && energy.getEnergy() < energy.getCapacity()) {
+                    double k = energy.addEnergy(mana / Config.coefficientmanatoef) * Config.coefficientmanatoef;
+                    mana -= k;
+                    this.perenergy = k;
                 }
             }
 
