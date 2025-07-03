@@ -130,6 +130,12 @@ dependencies {
     compileOnly "curse.maven:brandons-core-231382:3408276"
     runtimeOnly "curse.maven:divine-rpg-363543:3081433"
     compileOnly "curse.maven:divine-rpg-363543:3081433"
+    runtimeOnly "curse.maven:extrabotany-299086:3112313"
+    compileOnly "curse.maven:extrabotany-299086:3112313"
+    runtimeOnly "curse.maven:botaniverse-944656:4945200"
+    compileOnly "curse.maven:botaniverse-944656:4945200"
+    runtimeOnly "curse.maven:botanicadditions-310637:2939405"
+    compileOnly "curse.maven:botanicadditions-310637:2939405"
 /*    compileOnly "curse.maven:binnie-mods-223525:2916129"
     runtimeOnly "curse.maven:binnie-mods-223525:291612"*/
     runtimeOnly fileTree('lib')

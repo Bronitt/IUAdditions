@@ -4,6 +4,7 @@ package com.aeternal;
 import com.aeternal.integration.divinerpg.DivinerpgIntegration;
 import com.aeternal.proxy.CommonProxy;
 import com.aeternal.spectralconverters.IModelRender;
+import com.aeternal.spectralconverters.blocks.BlockManaConverter;
 import com.aeternal.spectralconverters.blocks.BlockSpectralConverter;
 import com.aeternal.spectralconverters.blocks.BlockSpectralQEConverter;
 import com.aeternal.spectralconverters.recipes.SRecipes;
@@ -43,6 +44,7 @@ public final class Core {
     public static final List<ItemStack> list = new ArrayList<>();
     public static BlockTileEntity itemSpectralPowerConverter;
     public static BlockTileEntity itemSpectralQEConverter;
+    public static BlockTileEntity itemManaConverter;
 
     public static Logger log;
     @SidedProxy(clientSide = "com.aeternal.proxy.ClientProxy", serverSide = "com.aeternal.proxy.CommonProxy")
@@ -71,6 +73,11 @@ public final class Core {
             itemSpectralQEConverter = TileBlockCreator.instance.create(BlockSpectralQEConverter.class);
             itemSpectralPowerConverter.registerModels();
             itemSpectralQEConverter.registerModels();
+        }
+        if(Constants.BA_LOADED && Constants.BA_CONFIRM && Constants.PU_LOADED) {
+            itemManaConverter = TileBlockCreator.instance.create(BlockManaConverter.class);
+            itemManaConverter.registerModels();
+
         }
         if (event.getSide() == Side.CLIENT) {
             for (IModelRender register : modelList) {

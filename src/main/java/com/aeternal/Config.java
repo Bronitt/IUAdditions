@@ -96,7 +96,13 @@ public final class Config {
 
     public static int coefficientqe;
     public static int coefficientrf;
+    public static int coefficienteftomana;
+    public static int coefficientmanatoef;
+    public static int manatransferrate;
     public static byte coreSearchRange;
+
+    public static boolean allowEfToManaConversion;
+    public static boolean allowManaToEfConversion;
 
     public static void loadNormalConfig(final File configFile) {
         Core.log.info("Loading IUA Config from " + configFile.getAbsolutePath());
@@ -214,6 +220,14 @@ public final class Config {
             if (coreSearchRange < 1) {
                 coreSearchRange = 16;
             }
+            allowEfToManaConversion = config.get("general", "Allow EF to Mana Conversion", false).getBoolean(false);
+            allowManaToEfConversion = config.get("general", "Allow Mana to Ef Conversion", true).getBoolean(true);
+            coefficienteftomana = config.get("general", "coefficient ef to mana", 1).getInt(1);
+
+            coefficientmanatoef = config.get("general", "coefficient mana to ef", 2).getInt(2);
+
+            manatransferrate = config.get("general", "mana I/O transfer rate", 50000).getInt(50000);
+
         } catch (Exception e) {
             Core.log.fatal("Fatal error reading config file.", e);
             throw new RuntimeException(e);

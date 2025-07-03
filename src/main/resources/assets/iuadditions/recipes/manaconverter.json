@@ -1,0 +1,45 @@
+{
+  "result": {
+    "item": "iuadditions:manaconverter",
+    "data": 0
+  },
+  "pattern": [
+    "GUP",
+    "BRB",
+    "PTG"
+  ],
+  "type": "forge:ore_shaped",
+  "key":
+  {
+    "P":
+    {
+      "item": "industrialupgrade:alloydoubleplate",
+      "data": 21
+    },
+    "G":
+    {
+      "item": "botania:manaresource",
+      "data": 14
+    },
+    "U":
+    {
+      "item": "botania:rune",
+      "data": 11
+    },
+    "B":
+    {
+      "item": "industrialupgrade:adv_spectral_box",
+      "data": 0
+    },
+    "R":
+    {
+      "item": "powerutils:powerutils",
+      "data": 0
+    },
+    "T":
+    {
+      "item": "botania:storage",
+      "data": 1
+    }
+  }
+}
