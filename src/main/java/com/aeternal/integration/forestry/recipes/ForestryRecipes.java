@@ -1,3 +1,7 @@
+//---This code is a part of the original IU(Industrial Upgrade) code: https://github.com/ZelGimi/industrialupgrade. Project: https://www.curseforge.com/minecraft/mc-mods/industrial-upgrade.
+//---The rights to this code belong to their original authors.---///
+//---The usage and modification of it are a subject to the license of the original souce code and discretion of it's author.---///
+
 package com.aeternal.integration.forestry.recipes;
 
 import binnie.extrabees.items.ItemHoneyComb;
@@ -88,10 +92,7 @@ public class ForestryRecipes {
 
     public static void FOCompressorRecipe() {
 
-
-
-
-        addcompressor(ItemHoneyComb.VanillaComb.SIMMERING.get(), 32, ForestryIntegration.compressed_shimmeringhoneycomb.getDefaultInstance());
+        addcompressor(ItemHoneyComb.VanillaComb.SIMMERING.get(), 32, new ItemStack(ForestryIntegration.compressed_shimmeringhoneycomb));
      //   addcompressor(String.valueOf(EnumHoneyComb.URANIUM), 32, ForestryIntegration.compressed_radioactivehoneycomb.getDefaultInstance());
 
     }
