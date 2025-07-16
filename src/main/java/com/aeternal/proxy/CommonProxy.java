@@ -6,6 +6,7 @@ package com.aeternal.proxy;
 
 import com.aeternal.Constants;
 import com.aeternal.api.IModelRegister;
+import com.aeternal.register.RecipeHandler;
 import com.aeternal.integration.astralsorcery.recipes.ASRecipes;
 import com.aeternal.integration.astralsorcery.tile.AstralSorceryIntegration;
 import com.aeternal.integration.divinerpg.DivinerpgIntegration;
@@ -16,8 +17,6 @@ import com.aeternal.register.Register;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-
-import static com.aeternal.integration.astralsorcery.recipes.ASRecipes.*;
 
 
 public class CommonProxy  {
@@ -43,6 +42,7 @@ public class CommonProxy  {
     }
 
     public void init(FMLInitializationEvent event) {
+        RecipeHandler.init();
         if (Constants.AS_LOADED && Constants.AS_CONFIRM) {
 
             //TODO: fix this
@@ -59,7 +59,7 @@ public class CommonProxy  {
            DIVRecipes.DIVCompressorRecipe();
            DIVRecipes.DIVRollingRecipe();
         }
-        if (Constants.FO_LOADED && Constants.BINNIE_LOADED && Constants.FO_CONFIRM) {
+        if (Constants.FO_LOADED && Constants.EXBEES_LOADED && Constants.FO_CONFIRM) {
             ForestryRecipes.init();
         }
 //        if (Constants.DE_LOADED && Constants.DE_CONFIRM) {

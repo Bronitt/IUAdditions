@@ -25,6 +25,10 @@ repositories {
             includeGroup 'maven.modrinth'
         }
     }
+    maven {
+        name = "CoFH Maven"
+        url = uri("https://maven.covers1624.net")
+    }
     mavenLocal() // Must be last for caching to work
 }
 
@@ -86,17 +90,19 @@ dependencies {
     implementation "curse.maven:power-utilities-iu-572640:6217594"
     implementation "curse.maven:simply-quarries-572662:6217598"
     implementation "curse.maven:quantum-generators-572971:6237088"
-    compileOnly "curse.maven:jei-238222:5846804"
-    runtimeOnly "curse.maven:had-enough-items-557549:6463525"
     compileOnly "curse.maven:the-one-probe-245211:2667280"
     runtimeOnly "curse.maven:the-one-probe-community-edition-885670:6736118"
+    runtimeOnly "curse.maven:had-enough-items-557549:6463525"
     implementation "curse.maven:top-addons-247111:2887479"
     implementation "curse.maven:ae2-extended-life-570458:6302098"
     implementation "curse.maven:crafttweaker-239197:6669824"
-    implementation "curse.maven:thermal-foundation-222880:2926428"
-    implementation "curse.maven:thermal-expansion-69163:2926431"
     implementation "curse.maven:thermal-dynamics-227443:2920505"
+    implementation "curse.maven:thermal-expansion-69163:2926431"
+    implementation "curse.maven:thermal-foundation-222880:2926428"
     implementation "curse.maven:cofh-core-69162:2920433"
     implementation "curse.maven:cofh-world-271384:2920434"
+    runtimeOnly fileTree('client')
+//    compileOnly fileTree('lib')
+    compileOnly fileTree('libs')
 
 }

@@ -1,6 +1,5 @@
 package com.aeternal.integration.forestry;
 
-
 import com.aeternal.integration.forestry.block.BlockForestrySolarPanel;
 import com.denfop.blocks.BlockTileEntity;
 import com.denfop.blocks.TileBlockCreator;
