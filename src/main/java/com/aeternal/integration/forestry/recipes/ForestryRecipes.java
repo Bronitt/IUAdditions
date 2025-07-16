@@ -5,10 +5,15 @@
 package com.aeternal.integration.forestry.recipes;
 
 import binnie.extrabees.items.ItemHoneyComb;
-import com.aeternal.integration.forestry.ForestryIntegration;
+import binnie.extrabees.modules.ModuleCore;
+import com.aeternal.IUAItem;
 import com.denfop.IUItem;
 import com.denfop.api.Recipes;
+import com.denfop.tiles.mechanism.TileEntityFluidIntegrator;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fluids.FluidStack;
 
 import static com.aeternal.integration.forestry.ForestryIntegration.*;
 import static com.denfop.recipes.CompressorRecipe.addcompressor;
@@ -16,7 +21,12 @@ import static com.denfop.recipes.CompressorRecipe.addcompressor;
 
 public class ForestryRecipes {
 
-   static ItemStack iridiumIndustrial = new ItemStack( IUItem.crafting_elements,1,285);
+    public static void init() {
+        FOCompressorRecipe();
+        FOFluidIntegrator();
+    }
+
+    static ItemStack iridiumIndustrial = new ItemStack( IUItem.crafting_elements,1,285);
     static ItemStack enrichedSunnarium = new ItemStack( IUItem.sunnarium,1,1);
     public static void FOBaseRecipe() {
         Recipes.recipe.addRecipe(plate_shimmering,
@@ -92,29 +102,38 @@ public class ForestryRecipes {
 
     public static void FOCompressorRecipe() {
 
-//        addcompressor(ItemHoneyComb.VanillaComb.SIMMERING.get(), 32, new ItemStack(ForestryIntegration.compressed_shimmeringhoneycomb));
-     //   addcompressor(String.valueOf(EnumHoneyComb.URANIUM), 32, ForestryIntegration.compressed_radioactivehoneycomb.getDefaultInstance());
+        addcompressor(ItemHoneyComb.VanillaComb.SIMMERING.get(), 32, new ItemStack(IUAItem.compressedHoneycomb, 1, 0));
+        addcompressor(new ItemStack(ModuleCore.comb, 32, 82), new ItemStack(IUAItem.compressedHoneycomb, 1, 0));
+        addcompressor(new ItemStack(ModuleCore.comb, 32, 21), new ItemStack(IUAItem.compressedHoneycomb, 1, 1));
+        addcompressor(new ItemStack(ModuleCore.comb, 32, 28), new ItemStack(IUAItem.compressedHoneycomb, 1, 2));
+        addcompressor(new ItemStack(ModuleCore.comb, 32, 81), new ItemStack(IUAItem.compressedHoneycomb, 1, 3));
+        addcompressor(new ItemStack(ModuleCore.comb, 32, 14), new ItemStack(IUAItem.compressedHoneycomb, 1, 4));
+        addcompressor(ItemHoneyComb.VanillaComb.DRIPPING.get(), 32, new ItemStack(IUAItem.compressedHoneycomb, 1, 5));
 
     }
 
+    public static void FOFluidIntegrator() {
+        Fluid forestryHoney = FluidRegistry.getFluid("for.honey");
+        Fluid iuHoney = FluidRegistry.getFluid("iufluidhoney");
+        Fluid water = FluidRegistry.WATER;
+        TileEntityFluidIntegrator.addRecipe(new ItemStack(IUAItem.compressedHoneycomb, 1, 0), new ItemStack(IUAItem.honeyCrystal, 1, 0), new FluidStack(forestryHoney, 2500), new FluidStack(water, 2500));
+        TileEntityFluidIntegrator.addRecipe(new ItemStack(IUAItem.compressedHoneycomb, 1, 0), new ItemStack(IUAItem.honeyCrystal, 1, 0), new FluidStack(iuHoney      , 2500), new FluidStack(water, 2500));
 
+        TileEntityFluidIntegrator.addRecipe(new ItemStack(IUAItem.compressedHoneycomb, 1, 1), new ItemStack(IUAItem.honeyCrystal, 1, 1), new FluidStack(forestryHoney, 2500), new FluidStack(water, 2500));
+        TileEntityFluidIntegrator.addRecipe(new ItemStack(IUAItem.compressedHoneycomb, 1, 1), new ItemStack(IUAItem.honeyCrystal, 1, 1), new FluidStack(iuHoney      , 2500), new FluidStack(water, 2500));
 
+        TileEntityFluidIntegrator.addRecipe(new ItemStack(IUAItem.compressedHoneycomb, 1, 2), new ItemStack(IUAItem.honeyCrystal, 1, 2), new FluidStack(forestryHoney, 2500), new FluidStack(water, 2500));
+        TileEntityFluidIntegrator.addRecipe(new ItemStack(IUAItem.compressedHoneycomb, 1, 2), new ItemStack(IUAItem.honeyCrystal, 1, 2), new FluidStack(iuHoney      , 2500), new FluidStack(water, 2500));
 
+        TileEntityFluidIntegrator.addRecipe(new ItemStack(IUAItem.compressedHoneycomb, 1, 3), new ItemStack(IUAItem.honeyCrystal, 1, 3), new FluidStack(forestryHoney, 2500), new FluidStack(water, 2500));
+        TileEntityFluidIntegrator.addRecipe(new ItemStack(IUAItem.compressedHoneycomb, 1, 3), new ItemStack(IUAItem.honeyCrystal, 1, 3), new FluidStack(iuHoney      , 2500), new FluidStack(water, 2500));
 
+        TileEntityFluidIntegrator.addRecipe(new ItemStack(IUAItem.compressedHoneycomb, 1, 4), new ItemStack(IUAItem.honeyCrystal, 1, 4), new FluidStack(forestryHoney, 2500), new FluidStack(water, 2500));
+        TileEntityFluidIntegrator.addRecipe(new ItemStack(IUAItem.compressedHoneycomb, 1, 4), new ItemStack(IUAItem.honeyCrystal, 1, 4), new FluidStack(iuHoney      , 2500), new FluidStack(water, 2500));
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+        TileEntityFluidIntegrator.addRecipe(new ItemStack(IUAItem.compressedHoneycomb, 1, 5), new ItemStack(IUAItem.honeyCrystal, 1, 5), new FluidStack(forestryHoney, 2500), new FluidStack(water, 2500));
+        TileEntityFluidIntegrator.addRecipe(new ItemStack(IUAItem.compressedHoneycomb, 1, 5), new ItemStack(IUAItem.honeyCrystal, 1, 5), new FluidStack(iuHoney      , 2500), new FluidStack(water, 2500));
+    }
 
 
 }

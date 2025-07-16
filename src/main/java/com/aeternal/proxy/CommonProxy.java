@@ -60,7 +60,7 @@ public class CommonProxy  {
            DIVRecipes.DIVRollingRecipe();
         }
         if (Constants.FO_LOADED && Constants.BINNIE_LOADED && Constants.FO_CONFIRM) {
-            ForestryRecipes.FOCompressorRecipe();
+            ForestryRecipes.init();
         }
 //        if (Constants.DE_LOADED && Constants.DE_CONFIRM) {
 //            SCRecipes.Init();
