@@ -1,18 +1,29 @@
 package com.aeternal.register;
 
+import com.aeternal.Constants;
+import com.aeternal.IUAItem;
+import com.aeternal.integration.forestry.items.CompressedHoneyComb;
+import com.aeternal.integration.forestry.items.HoneyCrystal;
+import com.aeternal.integration.forestry.items.HoneyGlass;
+import com.aeternal.integration.forestry.items.HoneyPlate;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 public class Register {
+
     public Register() {
     }
 
     public static void init() {
 
-        ItemStack[] stack;
+        if(Constants.FO_LOADED && Constants.FO_CONFIRM) {
+            IUAItem.compressedHoneycomb = new CompressedHoneyComb();
+            IUAItem.honeyCrystal = new HoneyCrystal();
+            IUAItem.honeyPlate = new HoneyPlate();
+            IUAItem.honeyGlass = new HoneyGlass();
+        }
 
     }
     

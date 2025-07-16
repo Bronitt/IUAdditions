@@ -17,6 +17,7 @@ public class Constants {
     public static final boolean AE2_LOADED = Loader.isModLoaded("appliedenergistics2");
     public static final boolean BA_LOADED = Loader.isModLoaded("botania");
     public static final boolean BV_LOADED = Loader.isModLoaded("botaniverse");
+    public static final boolean BOP_LOADED = Loader.isModLoaded("biomesoplenty");
     public static final boolean BADD_LOADED = Loader.isModLoaded("botanicadds");
     public static final boolean EB_LOADED = Loader.isModLoaded("extrabotany");
     public static final boolean AS_LOADED = Loader.isModLoaded("astralsorcery");

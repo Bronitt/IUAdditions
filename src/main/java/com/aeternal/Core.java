@@ -47,7 +47,9 @@ public final class Core {
     public static BlockTileEntity itemManaConverter;
 
     public static Logger log;
-    @SidedProxy(clientSide = "com.aeternal.proxy.ClientProxy", serverSide = "com.aeternal.proxy.CommonProxy")
+    @SidedProxy(
+            clientSide = "com.aeternal.proxy.ClientProxy",
+            serverSide = "com.aeternal.proxy.CommonProxy")
     public static CommonProxy proxy;
 
     @Mod.Instance("iuadditions")

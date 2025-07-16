@@ -91,5 +91,6 @@ dependencies {
     compileOnly "curse.maven:the-one-probe-245211:2667280"
     runtimeOnly "curse.maven:the-one-probe-community-edition-885670:6736118"
     implementation "curse.maven:top-addons-247111:2887479"
+    implementation "curse.maven:ae2-extended-life-570458:6302098"
 
 }

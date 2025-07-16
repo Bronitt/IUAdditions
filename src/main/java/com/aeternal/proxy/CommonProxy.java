@@ -12,6 +12,7 @@ import com.aeternal.integration.divinerpg.DivinerpgIntegration;
 import com.aeternal.integration.divinerpg.recipes.DIVRecipes;
 import com.aeternal.integration.forestry.ForestryIntegration;
 import com.aeternal.integration.forestry.recipes.ForestryRecipes;
+import com.aeternal.register.Register;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -23,10 +24,13 @@ public class CommonProxy  {
 
     public void preInit(FMLPreInitializationEvent event) {
 
+        Register.init();
+
         if (Constants.AS_LOADED && Constants.AS_CONFIRM) {
             AstralSorceryIntegration.init();
         }
         if (Constants.FO_LOADED && Constants.FO_CONFIRM) {
+
             ForestryIntegration.init();
         }
         if (Constants.DIV_LOADED && Constants.DIV_CONFIRM) {
