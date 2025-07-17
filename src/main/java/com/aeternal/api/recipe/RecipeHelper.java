@@ -1,5 +1,9 @@
 package com.aeternal.api.recipe;
 
+import com.brandon3055.draconicevolution.api.fusioncrafting.IFusionRecipe;
+import com.brandon3055.draconicevolution.api.fusioncrafting.SimpleFusionRecipe;
+import com.brandon3055.draconicevolution.lib.RecipeManager;
+import com.brandon3055.draconicevolution.lib.ToolUpgradeRecipe;
 import com.denfop.api.Recipes;
 import com.denfop.api.recipe.BaseMachineRecipe;
 import com.denfop.api.recipe.Input;
@@ -27,8 +31,11 @@ public class RecipeHelper {
                 new InputItemStack(input4),
                 new InputItemStack(input5)
         }), new RecipeOutput(nbt, output)));
-
     }
 
+    public static void addDEFusion(ItemStack result, ItemStack catalyst, long energyCost, int craftingTier, Object... ingredients) {
+        IFusionRecipe recipe = new SimpleFusionRecipe(result, catalyst, energyCost / ingredients.length, craftingTier, ingredients);
+        RecipeManager.FUSION_REGISTRY.add(recipe);
+    }
 
 }

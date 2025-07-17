@@ -4,11 +4,13 @@ import binnie.extrabees.modules.ModuleCore;
 import cofh.thermalexpansion.util.managers.machine.TransposerManager;
 import binnie.extrabees.items.ItemHoneyComb;
 import com.aeternal.Constants;
+import com.aeternal.Core;
 import com.aeternal.IUAItem;
 import com.aeternal.api.recipe.RecipeHelper;
 import com.aeternal.integration.forestry.items.HoneyCrystal;
 import com.aeternal.integration.forestry.items.HoneyGlass;
 import com.aeternal.integration.forestry.items.HoneyPlate;
+import com.brandon3055.draconicevolution.lib.RecipeManager;
 import com.denfop.IUItem;
 import com.denfop.api.Recipes;
 import com.denfop.tiles.mechanism.TileEntityFluidIntegrator;
@@ -17,6 +19,8 @@ import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fml.common.Mod;
+
+import java.math.BigInteger;
 
 import static com.denfop.recipes.CompressorRecipe.addcompressor;
 
@@ -39,6 +43,9 @@ public class ForestryRecipes {
         FOShapedRecipes();
         FOAlloySmelter();
         FOPerfectAlloySmelter();
+        if (Constants.DE_LOADED) {
+            FODEInfusion();
+        } else FORefractiveGlassAlternative();
     }
 
     public static void FOCompressorRecipe() {
@@ -138,6 +145,30 @@ public class ForestryRecipes {
                 new ItemStack(IUAItem.honeyPlate, 1, HoneyPlate.HoneyPlateTypes.getLength() - 2),
                 new ItemStack(IUAItem.honeyPlate, 1, HoneyPlate.HoneyPlateTypes.getLength() - 1),
                 new ItemStack(IUAItem.refractive, 1, 0),
+                5000
+        );
+    }
+
+    public static void FODEInfusion() {
+        ItemStack[] items = new ItemStack[]{
+                new ItemStack(IUAItem.honeyGlass, 1, HoneyPlate.HoneyPlateTypes.getLength() - 6),
+                new ItemStack(IUAItem.honeyGlass, 1, HoneyPlate.HoneyPlateTypes.getLength() - 5),
+                new ItemStack(IUAItem.honeyGlass, 1, HoneyPlate.HoneyPlateTypes.getLength() - 4),
+                new ItemStack(IUAItem.honeyGlass, 1, HoneyPlate.HoneyPlateTypes.getLength() - 3),
+                new ItemStack(IUAItem.honeyGlass, 1, HoneyPlate.HoneyPlateTypes.getLength() - 2),
+                new ItemStack(IUAItem.honeyGlass, 1, HoneyPlate.HoneyPlateTypes.getLength() - 1)
+        };
+        RecipeHelper.addDEFusion(new ItemStack(IUAItem.refractive, 1, 1), new ItemStack(IUItem.photonglass, 1, 13), 15000000000L, 3, (Object[]) items);
+    }
+
+    public static void FORefractiveGlassAlternative() {
+        RecipeHelper.addPerfectAlloySmelter(
+                new ItemStack(IUAItem.honeyGlass, 1, HoneyGlass.HoneyGlassTypes.getLength() - 5),
+                new ItemStack(IUAItem.honeyGlass, 1, HoneyGlass.HoneyGlassTypes.getLength() - 4),
+                new ItemStack(IUAItem.honeyGlass, 1, HoneyGlass.HoneyGlassTypes.getLength() - 3),
+                new ItemStack(IUAItem.honeyGlass, 1, HoneyGlass.HoneyGlassTypes.getLength() - 2),
+                new ItemStack(IUAItem.honeyGlass, 1, HoneyGlass.HoneyGlassTypes.getLength() - 1),
+                new ItemStack(IUAItem.refractive, 1, 1),
                 5000
         );
     }
