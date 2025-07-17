@@ -42,7 +42,6 @@ public class CommonProxy  {
     }
 
     public void init(FMLInitializationEvent event) {
-        RecipeHandler.init();
         if (Constants.AS_LOADED && Constants.AS_CONFIRM) {
 
             //TODO: fix this

@@ -69,6 +69,10 @@ public class HoneyPlate extends ItemSubTypes<HoneyPlate.HoneyPlateTypes> impleme
         public int getId() {
             return this.ID;
         }
+
+        public static int getLength() {
+            return values().length;
+        }
     }
 
 }

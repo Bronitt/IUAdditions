@@ -6,7 +6,7 @@
     "credits" : "This addon utilises source code of Industrial Upgrade that belongs to it's respective owners",
     "dependants" : [],
     "dependencies" : ["industrialupgrade"],
-    "description" : "industrialupgrade",
+    "description" : "",
     "logoFile" : "",
     "mcversion" : "1.12.2",
     "modid" : "iuadditions",

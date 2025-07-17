@@ -120,7 +120,7 @@ iua.plate.venomous=Venomou Crystallized Plate
 iua.plate.certus=Certus Crystallized Plate
 iua.plate.statics=Static Crystallized Plate
 iua.plate.dripping=Dripping Crystallized Plate
-iua.plate.refractive=Refractive Crystallized Plate
+iua.refractive.plate=Refractive Crystallized Plate
 
 iua.plate.shadowphotonium.name=Shadow Photonium Plate
 iua.plate.moltendemon.name=Molten Demonic Plate
@@ -152,28 +152,4 @@ iua.glass.venomous=Venomou Comb Glass
 iua.glass.certus=Certus Comb Glass
 iua.glass.statics=Static Comb Glass
 iua.glass.dripping=Gold Comb Glass
-iua.glass.refractive=Refractive Comb Glass
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+iua.refractive.glass=Refractive Comb Glass

@@ -1,10 +1,7 @@
 package com.aeternal;
 
 
-import com.aeternal.integration.forestry.items.CompressedHoneyComb;
-import com.aeternal.integration.forestry.items.HoneyCrystal;
-import com.aeternal.integration.forestry.items.HoneyGlass;
-import com.aeternal.integration.forestry.items.HoneyPlate;
+import com.aeternal.integration.forestry.items.*;
 import com.denfop.blocks.BlockTileEntity;
 
 public class IUAItem {
@@ -16,5 +13,6 @@ public class IUAItem {
  public static HoneyCrystal honeyCrystal;
  public static HoneyPlate honeyPlate;
  public static HoneyGlass honeyGlass;
+ public static Refractive refractive;
 
 }

@@ -69,6 +69,10 @@ public class HoneyCrystal extends ItemSubTypes<HoneyCrystal.HoneyCrystalTypes> i
         public int getId() {
             return this.ID;
         }
+
+        public static int getLength() {
+            return values().length;
+        }
     }
 
 }

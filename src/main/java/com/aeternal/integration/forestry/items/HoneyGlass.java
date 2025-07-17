@@ -69,6 +69,10 @@ public class HoneyGlass extends ItemSubTypes<HoneyGlass.HoneyGlassTypes> impleme
         public int getId() {
             return this.ID;
         }
+
+        public static int getLength() {
+            return values().length;
+        }
     }
 
 }

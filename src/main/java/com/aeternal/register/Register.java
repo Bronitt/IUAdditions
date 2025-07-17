@@ -2,10 +2,7 @@ package com.aeternal.register;
 
 import com.aeternal.Constants;
 import com.aeternal.IUAItem;
-import com.aeternal.integration.forestry.items.CompressedHoneyComb;
-import com.aeternal.integration.forestry.items.HoneyCrystal;
-import com.aeternal.integration.forestry.items.HoneyGlass;
-import com.aeternal.integration.forestry.items.HoneyPlate;
+import com.aeternal.integration.forestry.items.*;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
@@ -23,6 +20,7 @@ public class Register {
             IUAItem.honeyCrystal = new HoneyCrystal();
             IUAItem.honeyPlate = new HoneyPlate();
             IUAItem.honeyGlass = new HoneyGlass();
+            IUAItem.refractive = new Refractive();
         }
 
     }

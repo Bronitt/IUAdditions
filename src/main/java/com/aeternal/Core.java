@@ -25,6 +25,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.oredict.OreDictionary;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
@@ -36,7 +37,11 @@ import static com.aeternal.integration.forestry.ForestryIntegration.blockForestr
 
 @SuppressWarnings({"ALL", "UnnecessaryFullyQualifiedName"})
 @Mod.EventBusSubscriber
-@Mod(modid = Constants.MOD_ID, name = Constants.MOD_NAME, dependencies = Constants.MOD_DEPS, version = Constants.MOD_VERSION, acceptedMinecraftVersions = "[1.12,1.12.2]")
+@Mod(modid = Constants.MOD_ID,
+        name = Constants.MOD_NAME,
+        dependencies = Constants.MOD_DEPS,
+        version = Constants.MOD_VERSION,
+        acceptedMinecraftVersions = "[1.12,1.12.2]")
 public final class Core {
 
     public static final CreativeTabs IUATab = new TabCore(0, "IU:AdditionsTab");
@@ -46,7 +51,8 @@ public final class Core {
     public static BlockTileEntity itemSpectralQEConverter;
     public static BlockTileEntity itemManaConverter;
 
-    public static Logger log;
+    public static final Logger LOGGER = LogManager.getLogger(Constants.MOD_ID);
+
     @SidedProxy(
             clientSide = "com.aeternal.proxy.ClientProxy",
             serverSide = "com.aeternal.proxy.CommonProxy")
@@ -58,6 +64,7 @@ public final class Core {
     public static ResourceLocation getIdentifier(final String name) {
         return new ResourceLocation(Constants.MOD_ID, name);
     }
+
     public static final List<IModelRender> modelList = new ArrayList<>();
     public static void addIModelRegister(IModelRender puItemBase) {
         modelList.add(puItemBase);
@@ -67,7 +74,6 @@ public final class Core {
     @Mod.EventHandler
     public void load(final FMLPreInitializationEvent event) {
         MinecraftForge.EVENT_BUS.register(this);
-        com.aeternal.Core.log = event.getModLog();
         Config.loadNormalConfig(event.getSuggestedConfigurationFile());
         proxy.preInit(event);
         if(Constants.DE_LOADED && Constants.DE_CONFIRM && Constants.PU_LOADED) {
@@ -100,6 +106,7 @@ public final class Core {
 
         }
     }
+
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
         registerOreDict();

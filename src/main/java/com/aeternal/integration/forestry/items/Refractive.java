@@ -14,12 +14,12 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.Locale;
 
-public class CompressedHoneyComb extends ItemSubTypes<CompressedHoneyComb.CompressedHoneyCombTypes> implements IModelRegister {
+public class Refractive extends ItemSubTypes<Refractive.RefractiveTypes> implements IModelRegister {
 
-    protected static final String NAME = "compressed_honeycomb";
+    protected static final String NAME = "refractive";
 
-    public CompressedHoneyComb() {
-        super(CompressedHoneyCombTypes.class);
+    public Refractive() {
+        super(Refractive.RefractiveTypes.class);
         this.setCreativeTab(Core.IUATab);
         this.setMaxStackSize(64);
         Register.registerItem((Item) this, Core.getIdentifier(NAME)).setUnlocalizedName(NAME);
@@ -36,29 +36,25 @@ public class CompressedHoneyComb extends ItemSubTypes<CompressedHoneyComb.Compre
                 this,
                 meta,
                 new ModelResourceLocation(
-                        Constants.MOD_ID + ":" + NAME + "_" + CompressedHoneyComb.CompressedHoneyCombTypes.getFromID(meta).getName(),
+                        Constants.MOD_ID + ":" + Refractive.RefractiveTypes.getFromID(meta).getName() + "_" + NAME,
                         null
                 )
         );
     }
 
-    public enum CompressedHoneyCombTypes implements ISubEnum {
-        shimmering(0),
-        radioactive(1),
-        venomous(2),
-        certus(3),
-        statics(4),
-        dripping(5);
+    public enum RefractiveTypes implements ISubEnum {
+        plate(0),
+        glass(1);
 
         private final String name;
         private final int ID;
 
-        CompressedHoneyCombTypes(final int ID) {
+        RefractiveTypes(final int ID) {
             this.name = this.name().toLowerCase(Locale.US);
             this.ID = ID;
         }
 
-        public static CompressedHoneyCombTypes getFromID(final int ID) {
+        public static Refractive.RefractiveTypes getFromID(final int ID) {
             return values()[ID % values().length];
         }
 
@@ -74,6 +70,4 @@ public class CompressedHoneyComb extends ItemSubTypes<CompressedHoneyComb.Compre
             return values().length;
         }
     }
-
-
 }

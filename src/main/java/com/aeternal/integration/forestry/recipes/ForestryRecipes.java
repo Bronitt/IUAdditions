@@ -1,10 +1,15 @@
 package com.aeternal.integration.forestry.recipes;
 
+import binnie.extrabees.modules.ModuleCore;
 import cofh.thermalexpansion.util.managers.machine.TransposerManager;
 import binnie.extrabees.items.ItemHoneyComb;
-import binnie.extrabees.modules.ModuleCore;
 import com.aeternal.Constants;
 import com.aeternal.IUAItem;
+import com.aeternal.api.recipe.RecipeHelper;
+import com.aeternal.integration.forestry.items.HoneyCrystal;
+import com.aeternal.integration.forestry.items.HoneyGlass;
+import com.denfop.IUItem;
+import com.denfop.api.Recipes;
 import com.denfop.tiles.mechanism.TileEntityFluidIntegrator;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.Fluid;
@@ -21,12 +26,17 @@ public class ForestryRecipes {
     private static final Fluid IU_HONEY = FluidRegistry.getFluid("iufluidhoney");
     private static final Fluid WATER = FluidRegistry.WATER;
 
+    private static final ItemStack EXOTIC_MATERIAL = new ItemStack(IUItem.crafting_elements, 1, 434);
+    private static final ItemStack COM_IRIDIUM_PLATE = new ItemStack(IUItem.compressIridiumplate, 1);
+
     public static void init() {
         FOCompressorRecipe();
         FOFluidIntegrator();
         if (Constants.TE_LOADED) {
             FOFluidTransposer();
         }
+        FOShapedRecipes();
+        FOAlloySmelter();
     }
 
     public static void FOCompressorRecipe() {
@@ -80,6 +90,30 @@ public class ForestryRecipes {
 
         TransposerManager.addFillRecipe(800, new ItemStack(IUAItem.compressedHoneycomb, 1, 5), new ItemStack(IUAItem.honeyCrystal, 1, 5), new FluidStack(FORESTRY_HONEY, 2500), false);
         TransposerManager.addFillRecipe(800, new ItemStack(IUAItem.compressedHoneycomb, 1, 5), new ItemStack(IUAItem.honeyCrystal, 1, 5), new FluidStack(IU_HONEY      , 2500), false);
+    }
+
+    public static void FOShapedRecipes() {
+
+        for (int i = 0; i < HoneyCrystal.HoneyCrystalTypes.getLength(); i++) {
+            Recipes.recipe.addRecipe(
+                    new ItemStack(IUAItem.honeyPlate, 1, i),
+                    "ABC",
+                    "BDB",
+                    "CBA",
+
+                    ('A'), EXOTIC_MATERIAL,
+                    ('B'), new ItemStack(IUAItem.honeyCrystal, 1, i),
+                    ('C'), COM_IRIDIUM_PLATE,
+                    ('D'), forestry.core.ModuleCore.getItems().impregnatedCasing.getItemStack()
+                    );
+        }
+
+    }
+
+    public static void FOAlloySmelter() {
+        for (int i = 0; i < (HoneyGlass.HoneyGlassTypes.getLength() - 1); i++) {
+            RecipeHelper.addAlloySmelter(new ItemStack(IUAItem.honeyPlate, 1, i), new ItemStack(IUItem.sunnarium, 1, 2), new ItemStack(IUAItem.honeyGlass, 1, i), 5000);
+        }
     }
 
 }
