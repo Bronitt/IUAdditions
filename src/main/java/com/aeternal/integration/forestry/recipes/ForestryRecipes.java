@@ -8,6 +8,7 @@ import com.aeternal.IUAItem;
 import com.aeternal.api.recipe.RecipeHelper;
 import com.aeternal.integration.forestry.items.HoneyCrystal;
 import com.aeternal.integration.forestry.items.HoneyGlass;
+import com.aeternal.integration.forestry.items.HoneyPlate;
 import com.denfop.IUItem;
 import com.denfop.api.Recipes;
 import com.denfop.tiles.mechanism.TileEntityFluidIntegrator;
@@ -37,6 +38,7 @@ public class ForestryRecipes {
         }
         FOShapedRecipes();
         FOAlloySmelter();
+        FOPerfectAlloySmelter();
     }
 
     public static void FOCompressorRecipe() {
@@ -94,7 +96,19 @@ public class ForestryRecipes {
 
     public static void FOShapedRecipes() {
 
-        for (int i = 0; i < HoneyCrystal.HoneyCrystalTypes.getLength(); i++) {
+        Recipes.recipe.addRecipe(
+                new ItemStack(IUAItem.honeyPlate, 1, 0),
+                "ABC",
+                "BDB",
+                "CBA",
+
+                ('A'), EXOTIC_MATERIAL,
+                ('B'), new ItemStack(IUAItem.honeyCrystal, 1, 0),
+                ('C'), COM_IRIDIUM_PLATE,
+                ('D'), forestry.core.ModuleCore.getItems().impregnatedCasing.getItemStack()
+        );
+
+        for (int i = 1; i < HoneyCrystal.HoneyCrystalTypes.getLength(); i++) {
             Recipes.recipe.addRecipe(
                     new ItemStack(IUAItem.honeyPlate, 1, i),
                     "ABC",
@@ -104,16 +118,28 @@ public class ForestryRecipes {
                     ('A'), EXOTIC_MATERIAL,
                     ('B'), new ItemStack(IUAItem.honeyCrystal, 1, i),
                     ('C'), COM_IRIDIUM_PLATE,
-                    ('D'), forestry.core.ModuleCore.getItems().impregnatedCasing.getItemStack()
+                    ('D'), new ItemStack(IUAItem.honeyPlate, 1, i - 1)
                     );
         }
 
     }
 
     public static void FOAlloySmelter() {
-        for (int i = 0; i < (HoneyGlass.HoneyGlassTypes.getLength() - 1); i++) {
+        for (int i = 0; i < (HoneyGlass.HoneyGlassTypes.getLength()); i++) {
             RecipeHelper.addAlloySmelter(new ItemStack(IUAItem.honeyPlate, 1, i), new ItemStack(IUItem.sunnarium, 1, 2), new ItemStack(IUAItem.honeyGlass, 1, i), 5000);
         }
+    }
+
+    public static void FOPerfectAlloySmelter() {
+        RecipeHelper.addPerfectAlloySmelter(
+                new ItemStack(IUAItem.honeyPlate, 1, HoneyPlate.HoneyPlateTypes.getLength() - 5),
+                new ItemStack(IUAItem.honeyPlate, 1, HoneyPlate.HoneyPlateTypes.getLength() - 4),
+                new ItemStack(IUAItem.honeyPlate, 1, HoneyPlate.HoneyPlateTypes.getLength() - 3),
+                new ItemStack(IUAItem.honeyPlate, 1, HoneyPlate.HoneyPlateTypes.getLength() - 2),
+                new ItemStack(IUAItem.honeyPlate, 1, HoneyPlate.HoneyPlateTypes.getLength() - 1),
+                new ItemStack(IUAItem.refractive, 1, 0),
+                5000
+        );
     }
 
 }
