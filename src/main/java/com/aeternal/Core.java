@@ -31,7 +31,7 @@ import org.apache.logging.log4j.Logger;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.aeternal.integration.astralsorcery.tile.AstralSorceryIntegration.blockASSolarPanel;
+import static com.aeternal.integration.astralsorcery.AstralSorceryIntegration.blockASSolarPanel;
 import static com.aeternal.integration.divinerpg.DivinerpgIntegration.blockDivineSolarPanel;
 import static com.aeternal.integration.forestry.ForestryIntegration.blockForestrySolarPanel;
 

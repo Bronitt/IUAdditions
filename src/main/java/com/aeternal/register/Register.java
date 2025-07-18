@@ -2,6 +2,7 @@ package com.aeternal.register;
 
 import com.aeternal.Constants;
 import com.aeternal.IUAItem;
+import com.aeternal.integration.astralsorcery.item.AstralCraftingElements;
 import com.aeternal.integration.forestry.items.*;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -21,6 +22,9 @@ public class Register {
             IUAItem.honeyPlate = new HoneyPlate();
             IUAItem.honeyGlass = new HoneyGlass();
             IUAItem.refractive = new Refractive();
+        }
+        if (Constants.AS_LOADED && Constants.AS_CONFIRM) {
+            IUAItem.astralElements = new AstralCraftingElements();
         }
 
     }

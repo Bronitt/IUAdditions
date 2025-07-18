@@ -3,7 +3,6 @@ package com.aeternal.api.recipe;
 import com.brandon3055.draconicevolution.api.fusioncrafting.IFusionRecipe;
 import com.brandon3055.draconicevolution.api.fusioncrafting.SimpleFusionRecipe;
 import com.brandon3055.draconicevolution.lib.RecipeManager;
-import com.brandon3055.draconicevolution.lib.ToolUpgradeRecipe;
 import com.denfop.api.Recipes;
 import com.denfop.api.recipe.BaseMachineRecipe;
 import com.denfop.api.recipe.Input;
@@ -12,6 +11,8 @@ import com.denfop.recipe.IInputItemStack;
 import com.denfop.recipe.InputItemStack;
 import com.denfop.tiles.mechanism.dual.heat.TileAlloySmelter;
 import com.denfop.utils.ModUtils;
+import crafttweaker.api.item.IItemStack;
+import crafttweaker.api.minecraft.CraftTweakerMC;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
@@ -36,6 +37,14 @@ public class RecipeHelper {
     public static void addDEFusion(ItemStack result, ItemStack catalyst, long energyCost, int craftingTier, Object... ingredients) {
         IFusionRecipe recipe = new SimpleFusionRecipe(result, catalyst, energyCost / ingredients.length, craftingTier, ingredients);
         RecipeManager.FUSION_REGISTRY.add(recipe);
+    }
+
+    public static void addRolling(ItemStack input, ItemStack output) {
+        Recipes.recipes.addRecipe(
+                "rolling",
+                new BaseMachineRecipe(new Input(new InputItemStack(input)),
+                new RecipeOutput((NBTTagCompound) null, output))
+        );
     }
 
 }

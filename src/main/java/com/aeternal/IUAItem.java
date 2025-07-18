@@ -1,6 +1,7 @@
 package com.aeternal;
 
 
+import com.aeternal.integration.astralsorcery.item.AstralCraftingElements;
 import com.aeternal.integration.forestry.items.*;
 import com.denfop.blocks.BlockTileEntity;
 
@@ -14,5 +15,7 @@ public class IUAItem {
  public static HoneyPlate honeyPlate;
  public static HoneyGlass honeyGlass;
  public static Refractive refractive;
+
+ public static AstralCraftingElements astralElements;
 
 }

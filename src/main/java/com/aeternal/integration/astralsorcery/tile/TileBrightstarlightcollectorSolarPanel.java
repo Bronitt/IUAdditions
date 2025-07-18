@@ -5,6 +5,7 @@
 package com.aeternal.integration.astralsorcery.tile;
 
 import com.aeternal.Config;
+import com.aeternal.integration.astralsorcery.AstralSorceryIntegration;
 import com.aeternal.integration.astralsorcery.block.BlockAstralSolarPanel;
 import com.denfop.api.tile.IMultiTileBlock;
 import com.denfop.blocks.BlockTileEntity;

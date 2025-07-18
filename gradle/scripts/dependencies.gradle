@@ -103,5 +103,5 @@ dependencies {
     implementation "curse.maven:cofh-world-271384:2920434"
     runtimeOnly fileTree('client')
     compileOnly fileTree('libs')
-
+    implementation fileTree('lib')
 }

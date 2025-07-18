@@ -6,9 +6,9 @@ package com.aeternal.proxy;
 
 import com.aeternal.Constants;
 import com.aeternal.api.IModelRegister;
-import com.aeternal.register.RecipeHandler;
+//import com.aeternal.integration.astralsorcery.recipes.ASRecipes;
+import com.aeternal.integration.astralsorcery.AstralSorceryIntegration;
 import com.aeternal.integration.astralsorcery.recipes.ASRecipes;
-import com.aeternal.integration.astralsorcery.tile.AstralSorceryIntegration;
 import com.aeternal.integration.divinerpg.DivinerpgIntegration;
 import com.aeternal.integration.divinerpg.recipes.DIVRecipes;
 import com.aeternal.integration.forestry.ForestryIntegration;
@@ -44,12 +44,7 @@ public class CommonProxy  {
     public void init(FMLInitializationEvent event) {
         if (Constants.AS_LOADED && Constants.AS_CONFIRM) {
 
-            //TODO: fix this
-         //   ASRecipes.ASBaseRecipe();
-            ASRecipes.ASCompressorRecipe();
-            ASRecipes.MicrochipRecipe();
-            ASRecipes.ASDoubleMolecularRecipe();
-            ASRecipes.InitConstellationRecipes();
+            ASRecipes.init();
         }
         if (Constants.DIV_LOADED && Constants.DIV_CONFIRM) {
             //TODO: fix this
