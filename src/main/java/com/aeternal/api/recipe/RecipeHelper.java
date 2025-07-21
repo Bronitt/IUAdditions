@@ -11,8 +11,6 @@ import com.denfop.recipe.IInputItemStack;
 import com.denfop.recipe.InputItemStack;
 import com.denfop.tiles.mechanism.dual.heat.TileAlloySmelter;
 import com.denfop.utils.ModUtils;
-import crafttweaker.api.item.IItemStack;
-import crafttweaker.api.minecraft.CraftTweakerMC;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 

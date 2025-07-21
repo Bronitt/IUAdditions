@@ -21,6 +21,7 @@ public class Constants {
     public static final boolean BADD_LOADED = Loader.isModLoaded("botanicadds");
     public static final boolean EB_LOADED = Loader.isModLoaded("extrabotany");
     public static final boolean AS_LOADED = Loader.isModLoaded("astralsorcery");
+    public static final boolean ASA_LOADED = Loader.isModLoaded("astraladditions");
     public static final boolean DIV_LOADED = Loader.isModLoaded("divinerpg");
     public static final boolean FO_LOADED = Loader.isModLoaded("forestry");
     public static final boolean EXBEES_LOADED = Loader.isModLoaded("extrabees");

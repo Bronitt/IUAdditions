@@ -44,15 +44,15 @@ public class AstralCraftingElements extends ItemSubTypes<AstralCraftingElements.
 
     public enum AstralCraftingElementsTypes implements ISubEnum {
         plate(0),
-        capacitor(1),
-        soic_chip(2),
-        qfp_chip(3),
-        core(4),
-        iridium(5),
-        reinforced_iridium(6),
-        iridium_advanced(7),
-        dense_reinforced_iridium(8),
-        circuit(9);
+        iridium(1),
+        reinforced_iridium(2),
+        dense_reinforced_iridium(3),
+        iridium_advanced(4),
+        capacitor(5),
+        soic_chip(6),
+        qfp_chip(7),
+        circuit(8),
+        core(9);
 
         private final String name;
         private final int ID;
