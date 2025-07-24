@@ -106,6 +106,8 @@ iua.divinerpg_elements.arcana_core=Arcana Core
 iua.divinerpg_elements.vethea_core=Vethea Core
 iua.divinerpg_elements.crossdimensional_core=§c§lCrossdimensional Core
 
+iua.crossdimensional_core.tooltip=§cThe ultimate power of all dimensions in the palm of your hand!
+
 #Forestry
 iua.compressed_honeycomb.shimmering=Compressed Shimmering Honeycomb
 iua.compressed_honeycomb.radioactive=Compressed Radioactive Honeycomb
@@ -114,20 +116,28 @@ iua.compressed_honeycomb.certus=Compressed Certus Honeycomb
 iua.compressed_honeycomb.statics=Compressed Static Honeycomb
 iua.compressed_honeycomb.dripping=Compressed Dripping Honeycomb
 
-iua.crystal.shimmering=Shimmering Honey Crystal
-iua.crystal.radioactive=Radioactive Honey Crystal
-iua.crystal.venomous=Venomou Honey Crystal
-iua.crystal.certus=Certus Honey Crystal
-iua.crystal.statics=Static Honey Crystal
-iua.crystal.dripping=Dripping Honey Crystal
+iua.honey_crystal.shimmering=Shimmering Honey Crystal
+iua.honey_crystal.radioactive=Radioactive Honey Crystal
+iua.honey_crystal.venomous=Venomou Honey Crystal
+iua.honey_crystal.certus=Certus Honey Crystal
+iua.honey_crystal.statics=Static Honey Crystal
+iua.honey_crystal.dripping=Dripping Honey Crystal
 
-iua.plate.shimmering=Shimmering Crystallized Plate
-iua.plate.radioactive=Radioactive Crystallized Plate
-iua.plate.venomous=Venomou Crystallized Plate
-iua.plate.certus=Certus Crystallized Plate
-iua.plate.statics=Static Crystallized Plate
-iua.plate.dripping=Dripping Crystallized Plate
+iua.honey_plate.shimmering=Shimmering Crystallized Plate
+iua.honey_plate.radioactive=Radioactive Crystallized Plate
+iua.honey_plate.venomous=Venomou Crystallized Plate
+iua.honey_plate.certus=Certus Crystallized Plate
+iua.honey_plate.statics=Static Crystallized Plate
+iua.honey_plate.dripping=Dripping Crystallized Plate
 iua.refractive.plate=Refractive Crystallized Plate
+
+iua.honey_glass.shimmering=Shimmering Comb Glass
+iua.honey_glass.radioactive=Radioactive Comb Glass
+iua.honey_glass.venomous=Venomou Comb Glass
+iua.honey_glass.certus=Certus Comb Glass
+iua.honey_glass.statics=Static Comb Glass
+iua.honey_glass.dripping=Dripping Comb Glass
+iua.refractive.glass=Refractive Comb Glass
 
 ###
 iua.plate.shadowphotonium.name=Shadow Photonium Plate
@@ -153,11 +163,3 @@ iua.ingot_hades.name=Hades Alloy
 iua.ingot_harmonite.name=Harmonite Alloy
 iua.ingot_nucleoarlemite.name=Nucleo Arlemite Alloy
 iua.ingot_voidweave.name=Voidweave Alloy
-
-iua.glass.shimmering=Shimmering Comb Glass
-iua.glass.radioactive=Radioactive Comb Glass
-iua.glass.venomous=Venomou Comb Glass
-iua.glass.certus=Certus Comb Glass
-iua.glass.statics=Static Comb Glass
-iua.glass.dripping=Gold Comb Glass
-iua.refractive.glass=Refractive Comb Glass

@@ -41,7 +41,6 @@ public class ItemSubTypes<T extends Enum<T> & IStringSerializable> extends Item 
             this.registerModel(this, i, list.get(i).getName());
         }
 
-
     }
 
     @SideOnly(Side.CLIENT)

@@ -16,7 +16,7 @@ import java.util.Locale;
 
 public class HoneyPlate extends ItemSubTypes<HoneyPlate.HoneyPlateTypes> implements IModelRegister {
 
-    protected static final String NAME = "plate";
+    protected static final String NAME = "honey_plate";
 
     public HoneyPlate() {
         super(HoneyPlate.HoneyPlateTypes.class);

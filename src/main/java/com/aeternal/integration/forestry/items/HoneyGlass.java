@@ -16,7 +16,7 @@ import java.util.Locale;
 
 public class HoneyGlass extends ItemSubTypes<HoneyGlass.HoneyGlassTypes> implements IModelRegister {
 
-    protected static final String NAME = "glass";
+    protected static final String NAME = "honey_glass";
 
     public HoneyGlass() {
         super(HoneyGlass.HoneyGlassTypes.class);

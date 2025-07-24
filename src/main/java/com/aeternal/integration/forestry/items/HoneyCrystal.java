@@ -16,7 +16,7 @@ import java.util.Locale;
 
 public class HoneyCrystal extends ItemSubTypes<HoneyCrystal.HoneyCrystalTypes> implements IModelRegister {
 
-    protected static final String NAME = "crystal";
+    protected static final String NAME = "honey_crystal";
 
     public HoneyCrystal() {
         super(HoneyCrystalTypes.class);

@@ -18,8 +18,9 @@ import net.minecraft.nbt.NBTTagCompound;
 public class RecipeHelper {
 
     public static ItemStack setCount(ItemStack itemStack, int count) {
-        itemStack.setCount(count);
-        return itemStack;
+        ItemStack newItemStack = itemStack.copy();
+        newItemStack.setCount(count);
+        return newItemStack;
     }
 
     public static void addAlloySmelter(ItemStack input0, ItemStack input1, ItemStack output, int temp) {
