@@ -49,7 +49,7 @@ public class CommonProxy  {
         if (Constants.DIV_LOADED && Constants.DIV_CONFIRM) {
             //TODO: fix this
         //   DIVRecipes.DIVBaseRecipe();
-           DIVRecipes.MicrochipRecipe();
+//           DIVRecipes.MicrochipRecipe();
            DIVRecipes.DIVCompressorRecipe();
            DIVRecipes.DIVRollingRecipe();
         }

@@ -49,57 +49,64 @@ iuadditions.forestrypanel.refractivebeekeeper_solar_panel=§4§lRefractive Beeke
 iuadditions.spectralconverter.spectral_converter=§dSpectral Converter
 iuadditions.spectralqeconverter.spectralqe_converter=§dQuantum Spectral Converter
 iuadditions.manaconverter.mana_converter=§bMana Converter
+
 #ITEMS
+
+#Astral
 iua.astral_element.plate=Starmetal Plate
-
 iua.astral_element.capacitor=Stellar Capacitor
-iua.capacitor_eden.name=Eden Capacitor
-iua.capacitor_wildwood.name=Wildwood Capacitor
-iua.capacitor_apalachia.name=Apalachia Capacitor
-iua.capacitor_skythern.name=Skythern Capacitor
-iua.capacitor_mortum.name=Mortum Capacitor
-iua.capacitor_arcana.name=Arcana Capacitor
-
 iua.astral_element.iridium=Stellar Iridium
-
 iua.astral_element.circuit=Stellar Circuit
-iua.circuit_eden.name=Eden Circuit
-iua.circuit_wildwood.name=Wildwood Circuit
-iua.circuit_apalachia.name=Apalachia Circuit
-iua.circuit_skythern.name=Skythern Circuit
-iua.circuit_mortum.name=Mortum Circuit
-iua.circuit_arcana.name=Arcana Circuit
-
 iua.astral_element.qfp_chip=Stellar QFP Chip
-iua.qfp_eden.name=Eden QFP Chip
-iua.qfp_wildwood.name=Wildwood QFP Chip
-iua.qfp_apalachia.name=Apalachia QFP Chip
-iua.qfp_skythern.name=Skythern QFP Chip
-iua.qfp_mortum.name=Mortum QFP Chip
-iua.qfp_arcana.name=Arcna QFP Chip
-
 iua.astral_element.soic_chip=Stellar SOIC Chip
-iua.soic_eden.name=Eden SOIC Chip
-iua.soic_wildwood.name=Wildwood SOIC Chip
-iua.soic_apalachia.name=Apalachia SOIC Chip
-iua.soic_skythern.name=Skythern SOIC Chip
-iua.soic_mortum.name=Mortum SOIC Chip
-iua.soic_arcana.name=Arcana SOIC Chip
-
 iua.astral_element.core=Stellar Core
-iua.core_eden.name=Eden Core
-iua.core_wildwood.name=Wildwood Core
-iua.core_apalachia.name=Apalachia Core
-iua.core_skythern.name=Skythern Core
-iua.core_mortum.name=Mortum Core
-iua.core_arcana.name=Arcana Core
-iua.core_vethea.name=Vethea Core
-iua.core_crossdimensional.name=§c§lCrossdimensional Core
-
 iua.astral_element.reinforced_iridium=Industrial Stellar Iridium Plate
 iua.astral_element.dense_reinforced_iridium=Compressed Stellar Industrial Iridium Plate
 iua.astral_element.iridium_advanced=Dense Compressed Stellar Industrial Iridium Plate
 
+#DivRPG
+iua.divinerpg_elements.eden_capacitor=Eden Capacitor
+iua.divinerpg_elements.wildwood_capacitor=Wildwood Capacitor
+iua.divinerpg_elements.apalachia_capacitor=Apalachia Capacitor
+iua.divinerpg_elements.skythern_capacitor=Skythern Capacitor
+iua.divinerpg_elements.mortum_capacitor=Mortum Capacitor
+iua.divinerpg_elements.arcana_capacitor=Arcana Capacitor
+iua.divinerpg_elements.vethea_capacitor=Vethea Capacitor
+
+iua.divinerpg_elements.eden_soic=Eden SOIC Chip
+iua.divinerpg_elements.wildwood_soic=Wildwood SOIC Chip
+iua.divinerpg_elements.apalachia_soic=Apalachia SOIC Chip
+iua.divinerpg_elements.skythern_soic=Skythern SOIC Chip
+iua.divinerpg_elements.mortum_soic=Mortum SOIC Chip
+iua.divinerpg_elements.arcana_soic=Arcana SOIC Chip
+iua.divinerpg_elements.vethea_soic=Vethea SOIC Chip
+
+iua.divinerpg_elements.eden_qfp=Eden QFP Chip
+iua.divinerpg_elements.wildwood_qfp=Wildwood QFP Chip
+iua.divinerpg_elements.apalachia_qfp=Apalachia QFP Chip
+iua.divinerpg_elements.skythern_qfp=Skythern QFP Chip
+iua.divinerpg_elements.mortum_qfp=Mortum QFP Chip
+iua.divinerpg_elements.arcana_qfp=Arcna QFP Chip
+iua.divinerpg_elements.vethea_qfp=Vethea QFP Chip
+
+iua.divinerpg_elements.eden_circuit=Eden Circuit
+iua.divinerpg_elements.wildwood_circuit=Wildwood Circuit
+iua.divinerpg_elements.apalachia_circuit=Apalachia Circuit
+iua.divinerpg_elements.skythern_circuit=Skythern Circuit
+iua.divinerpg_elements.mortum_circuit=Mortum Circuit
+iua.divinerpg_elements.arcana_circuit=Arcana Circuit
+iua.divinerpg_elements.vethea_circuit=Vethea Circuit
+
+iua.divinerpg_elements.eden_core=Eden Core
+iua.divinerpg_elements.wildwood_core=Wildwood Core
+iua.divinerpg_elements.apalachia_core=Apalachia Core
+iua.divinerpg_elements.skythern_core=Skythern Core
+iua.divinerpg_elements.mortum_core=Mortum Core
+iua.divinerpg_elements.arcana_core=Arcana Core
+iua.divinerpg_elements.vethea_core=Vethea Core
+iua.divinerpg_elements.crossdimensional_core=§c§lCrossdimensional Core
+
+#Forestry
 iua.compressed_honeycomb.shimmering=Compressed Shimmering Honeycomb
 iua.compressed_honeycomb.radioactive=Compressed Radioactive Honeycomb
 iua.compressed_honeycomb.venomous=Compressed Venomou Honeycomb
@@ -122,6 +129,7 @@ iua.plate.statics=Static Crystallized Plate
 iua.plate.dripping=Dripping Crystallized Plate
 iua.refractive.plate=Refractive Crystallized Plate
 
+###
 iua.plate.shadowphotonium.name=Shadow Photonium Plate
 iua.plate.moltendemon.name=Molten Demonic Plate
 iua.plate.celestial.name=Celestial Plate

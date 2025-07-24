@@ -17,7 +17,6 @@ import hellfirepvp.astralsorcery.common.lib.Constellations;
 import hellfirepvp.astralsorcery.common.lib.ItemsAS;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 
 public class ASRecipes {
 
@@ -45,7 +44,7 @@ public class ASRecipes {
     }
 
     public static void ASAdvMolecular() {
-        TileDoubleMolecular.addrecipe(new ItemStack(IUItem.crafting_elements, 1, 275), new ItemStack(STAR_METAL.getItem(), 8, STAR_METAL.getMetadata()), new ItemStack(IUAItem.astralElements, 1, 1), 5000000L);
+        TileDoubleMolecular.addrecipe(new ItemStack(IUItem.crafting_elements, 1, 275), RecipeHelper.setCount(STAR_METAL, 8), new ItemStack(IUAItem.astralElements, 1, 1), 5000000L);
         if (Constants.ASA_LOADED) {
             TileDoubleMolecular.addrecipe(new ItemStack(IUItem.crafting_elements, 1, 275), new ItemStack(BlockInit.BLOCK_STARMETAL, 1), new ItemStack(IUAItem.astralElements, 1, 1), 1000000L);
         }
@@ -95,12 +94,7 @@ public class ASRecipes {
 
     public static void ASCircuitManufacturer() {
         ItemStack shiftingStar = new ItemStack(ItemsAS.shiftingStar, 1, 0);
-        for(IMajorConstellation cst : ConstellationRegistry.getMajorConstellations()) {
-            Core.LOGGER.info("HAAAAAAAAAAAAA " + cst.getUnlocalizedName());
-            if (cst.getUnlocalizedName().equals(Constellations.vicio.getUnlocalizedName())) {
-                ItemShiftingStar.setAttunement(shiftingStar, cst);
-            }
-        }
+        ItemShiftingStar.setAttunement(shiftingStar, Constellations.vicio);
 
         TileGenerationMicrochip.add(
                 new ItemStack(IUItem.iuingot, 1, 9),
