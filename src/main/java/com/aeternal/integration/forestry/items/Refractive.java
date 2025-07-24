@@ -5,7 +5,7 @@ import com.aeternal.Core;
 import com.aeternal.api.IModelRegister;
 import com.aeternal.api.block.ISubEnum;
 import com.aeternal.items.resource.ItemSubTypes;
-import com.aeternal.register.Register;
+import com.aeternal.register.ItemHandler;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.model.ModelLoader;
@@ -22,7 +22,7 @@ public class Refractive extends ItemSubTypes<Refractive.RefractiveTypes> impleme
         super(Refractive.RefractiveTypes.class);
         this.setCreativeTab(Core.IUATab);
         this.setMaxStackSize(64);
-        Register.registerItem((Item) this, Core.getIdentifier(NAME)).setUnlocalizedName(NAME);
+        ItemHandler.registerItem((Item) this, Core.getIdentifier(NAME)).setUnlocalizedName(NAME);
         Core.proxy.addIModelRegister(this);
     }
 

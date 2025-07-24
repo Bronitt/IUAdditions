@@ -7,7 +7,7 @@ package com.aeternal.items;
 import com.aeternal.Constants;
 import com.aeternal.Core;
 import com.aeternal.api.IModelRegister;
-import com.aeternal.register.Register;
+import com.aeternal.register.ItemHandler;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -33,7 +33,7 @@ public class IUAItemBase extends Item implements IModelRegister {
         this.name = name;
         this.path = path;
         setUnlocalizedName(name);
-        Register.registerItem((Item) this, Core.getIdentifier(name)).setUnlocalizedName(name);
+        ItemHandler.registerItem((Item) this, Core.getIdentifier(name)).setUnlocalizedName(name);
         Core.proxy.addIModelRegister(this);
     }
 

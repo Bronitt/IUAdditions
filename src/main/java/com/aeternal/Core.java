@@ -118,7 +118,6 @@ public final class Core {
 
     @Mod.EventHandler
     public void init(final FMLInitializationEvent event) {
-        SRecipes.init();
         proxy.init(event);
     }
 

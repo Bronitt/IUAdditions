@@ -2,18 +2,18 @@ package com.aeternal.register;
 
 import com.aeternal.Constants;
 import com.aeternal.IUAItem;
+import com.aeternal.integration.astralsorcery.AstralSorceryIntegration;
 import com.aeternal.integration.astralsorcery.item.AstralCraftingElements;
+import com.aeternal.integration.divinerpg.DivinerpgIntegration;
 import com.aeternal.integration.divinerpg.item.DivItems;
+import com.aeternal.integration.forestry.ForestryIntegration;
 import com.aeternal.integration.forestry.items.*;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
-public class Register {
-
-    public Register() {
-    }
+public class ItemHandler {
 
     public static void init() {
 
@@ -23,12 +23,15 @@ public class Register {
             IUAItem.honeyPlate = new HoneyPlate();
             IUAItem.honeyGlass = new HoneyGlass();
             IUAItem.refractive = new Refractive();
+            ForestryIntegration.init();
         }
         if (Constants.AS_LOADED && Constants.AS_CONFIRM) {
             IUAItem.astralElements = new AstralCraftingElements();
+            AstralSorceryIntegration.init();
         }
         if (Constants.DIV_LOADED && Constants.DIV_CONFIRM) {
             IUAItem.divItems = new DivItems();
+            DivinerpgIntegration.init();
         }
 
     }

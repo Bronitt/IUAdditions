@@ -2,7 +2,6 @@ package com.aeternal.integration.astralsorcery.recipes;
 
 import arcaios26.astraladditions.init.BlockInit;
 import com.aeternal.Constants;
-import com.aeternal.Core;
 import com.aeternal.IUAItem;
 import com.aeternal.api.recipe.RecipeHelper;
 import com.denfop.IUItem;
@@ -10,8 +9,6 @@ import com.denfop.api.Recipes;
 import com.denfop.recipes.CompressorRecipe;
 import com.denfop.tiles.base.TileDoubleMolecular;
 import com.denfop.tiles.mechanism.TileGenerationMicrochip;
-import hellfirepvp.astralsorcery.common.constellation.ConstellationRegistry;
-import hellfirepvp.astralsorcery.common.constellation.IMajorConstellation;
 import hellfirepvp.astralsorcery.common.item.useables.ItemShiftingStar;
 import hellfirepvp.astralsorcery.common.lib.Constellations;
 import hellfirepvp.astralsorcery.common.lib.ItemsAS;
